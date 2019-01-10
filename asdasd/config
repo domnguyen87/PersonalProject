@@ -1,0 +1,16 @@
+[core]
+	repositoryformatversion = 0
+	filemode = false
+	bare = false
+	logallrefupdates = true
+	symlinks = false
+	ignorecase = true
+[remote "origin"]
+	url = http://code.sabio.la:8080/tfs/SabioCollection/C64/_git/warmup_react
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "chris.han/registration"]
+	remote = origin
+	merge = refs/heads/chris.han/registration
+[branch "dom.nguyen/pp"]
+	remote = origin
+	merge = refs/heads/dom.nguyen/pp
