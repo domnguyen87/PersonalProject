@@ -34,7 +34,7 @@ class Contacts extends React.Component {
                     </h3>
 
                     <div class="row contacts-col-view">
-                    {this.state.data.match((par) => {
+                    {this.state.data.map((par) => {
                         return <ContactsComponent
                             key = {par.id}
                             id = {par.id}
