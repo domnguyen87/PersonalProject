@@ -10,7 +10,7 @@ class Contacts extends React.Component {
             phone: '',
             twittter: '',
             instagram: '',
-            data: ''
+            data: []
  
 
         }

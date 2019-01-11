@@ -1,21 +1,27 @@
 import React from 'react'
 
 class WorkOutPlans extends React.Component {
-    constructor(props)
-    super(props)
+    constructor(props) {
+        super(props)
+        this.state= {
+            key: '',
+            id: '',
+            url: '',
+            title: '',
+            description: '',
+            level: '',
+            timeLength: '',
+            img: '',
+            author: '',
+            data=[]
+        }
+
+    }
+
+    componentDidMount() {
+        
+    }
     
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     render() {
@@ -61,7 +67,8 @@ class WorkOutPlans extends React.Component {
                             description={par.description}
                             level={par.level}
                             timeLength={par.timeLength}
-
+                            img={par.img}
+                            author={par.author} />
                         })}
                         </div>
 
