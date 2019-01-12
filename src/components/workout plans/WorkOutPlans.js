@@ -28,7 +28,7 @@ class WorkOutPlans extends React.Component {
 
         return (
             <React.Fragment>
-                <div className="layout-content">
+                <div className="layout-content d-none d-lg-flex col-md-12 align-items-center ui-bg-cover ui-bg-overlay-container p-5" style={{backgroundImage: "url('assets/img/bg/Gym1.jpg')"}}>
                     <div className ="container-fluid flex-grow-1 container-p-y">
                         <h3 className="d-flex flex-wrap justify-content-between align-items-center w-100 font-weight-bold pt-2 mb-4">
                         <div classN="col-12 col-md px-0 pb-2">

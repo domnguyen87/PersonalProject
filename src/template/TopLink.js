@@ -6,7 +6,7 @@ const TopLink = props => {
     return (
         <React.Fragment>
             <div className="topnav nav-item m-2">
-                <Link className={props.className} to={props.path}>{props.name}</Link>
+                <Link className="font-weight-light" to={props.path} style={{ color: "#dbdbdb", fontFamily: "Arial"}}>{props.name}</Link>
             </div>
         </React.Fragment>
 

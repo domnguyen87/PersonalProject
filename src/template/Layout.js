@@ -14,6 +14,7 @@ class Layout extends React.Component {
                 {/* <!-- Layout wrapper --> */}
                 <div className="layout-wrapper layout-1">
                     {/* <!-- Layout navbar --> */}
+                    <div className="layout-inner">
                         <TopNav />
 
                     {/* <!-- / Layout navbar --> */}
@@ -21,6 +22,7 @@ class Layout extends React.Component {
                             <Navigation />
                         </div>
                     {/* <!-- / Layout navbar --> */}
+                    </div>
                 </div>
                 {/* <!-- / Layout wrapper --> */}
 
