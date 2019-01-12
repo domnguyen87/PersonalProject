@@ -17,7 +17,7 @@ class Contacts extends React.Component {
     }
 
     componentDidMount() {
-        Accounts.getAllAccounts(this.getAllAccountsSuccess, this.getAllAccountsError)
+        //Accounts.getAllAccounts(this.getAllAccountsSuccess, this.getAllAccountsError)
     }
 
     getAllAccountsSuccess = resp => {

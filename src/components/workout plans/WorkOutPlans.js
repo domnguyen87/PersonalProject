@@ -13,7 +13,7 @@ class WorkOutPlans extends React.Component {
             timeLength: '',
             img: '',
             author: '',
-            data=[]
+            data:[]
         }
 
     }
@@ -58,7 +58,7 @@ class WorkOutPlans extends React.Component {
                         </ul>
 
                         <div className="row">
-                        {this.state.data.map((par) => {
+                        {/* {this.state.data.map((par) => {
                             return <WorkOutPlansComponent
                             key={par.id}
                             id={par.id}
@@ -69,7 +69,7 @@ class WorkOutPlans extends React.Component {
                             timeLength={par.timeLength}
                             img={par.img}
                             author={par.author} />
-                        })}
+                        })} */}
                         </div>
 
                     </div>
