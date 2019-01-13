@@ -55,6 +55,12 @@ class Register extends React.Component {
                               </label>
                               <input type="password" className="form-control"/>
                             </div>
+                            <div className="form-group">
+                              <label className="form-label d-flex justify-content-between align-items-end">
+                                <div>Confirm Password</div>
+                              </label>
+                              <input type="password" className="form-control"/>
+                            </div>
                             <div className="d-flex justify-content-between align-items-center m-0">
                               <label className="custom-control custom-checkbox m-0">
                                 <input type="checkbox" className="custom-control-input"/>

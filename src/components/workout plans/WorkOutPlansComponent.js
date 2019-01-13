@@ -3,7 +3,7 @@ import React from 'react'
 const WorkOutPlansComponent = props => {
 
     return (
-        <div key={props.id} id ={props.id}>
+        <div key={props.id} id={props.id}>
             <div className="col-sm-6 col-xl-4">
                 <div className="card mb-4">
                     <div className="w-100">

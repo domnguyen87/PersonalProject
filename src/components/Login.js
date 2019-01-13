@@ -173,7 +173,7 @@ class Login extends React.Component {
                             <div className="d-flex justify-content-between align-items-center m-0">
                               <label className="custom-control custom-checkbox m-0">
                                 <input type="checkbox" className="custom-control-input"/>
-                                <span className="custom-control-label">Remember me</span>
+                                <span className="custom-control-label display-5">Remember me</span>
                               </label>
                               <button type="button" className="btn btn-primary">Sign In</button>
                             </div>

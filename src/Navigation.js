@@ -7,6 +7,7 @@ import Register from './components/Register'
 import Login from './components/Login'
 import Contacts from './components/contacts/Contacts'
 import WorkOutPlans from './components/workout plans/WorkOutPlans'
+import Careers from './components/careers/Careers'
 
 class Navigation extends React.Component{
   constructor(props) {
@@ -25,6 +26,7 @@ class Navigation extends React.Component{
           <Route path="/login" component={Login} />
           <Route path="/contacts" component={Contacts} />
           <Route path="/workoutplans" component={WorkOutPlans} />
+          <Route path="/careers" component={Careers} />
 
 
         </Switch>
