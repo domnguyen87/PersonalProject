@@ -1,6 +1,7 @@
 import React from 'react'
 import Navigation from '../Navigation'
-import TopNav from '../template/TopNav'
+import TopNav from './TopNav'
+import Footer from './Footer'
 
 class Layout extends React.Component {
     constructor(props) {
@@ -11,20 +12,18 @@ class Layout extends React.Component {
     render() {
         return (
             <React.Fragment>
-                {/* <!-- Layout wrapper --> */}
                 <div className="layout-wrapper layout-1">
-                    {/* <!-- Layout navbar --> */}
                     <div className="layout-inner">
                         <TopNav />
-
-                    {/* <!-- / Layout navbar --> */}
                         <div className="layout-container">
-                            <Navigation />
+                            <div className="layout-content">
+                                <Navigation />
+                                <Footer />
+                            </div>
                         </div>
-                    {/* <!-- / Layout navbar --> */}
+                        
                     </div>
                 </div>
-                {/* <!-- / Layout wrapper --> */}
 
                 {/* <!-- Core scripts --> */}
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

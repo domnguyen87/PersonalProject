@@ -16,8 +16,8 @@ class Careers extends React.Component {
     render() {
         return(
             <React.Fragment>
+                <div className="authentication-wrapper authentication-3">
                 <div className="d-none d-lg-flex col-md-12 align-items-center ui-bg-cover ui-bg-overlay-container p-5" style={{backgroundImage: "url('assets/img/bg/Pool.jpg')"}}>
-                      <div className="ui-bg-overlay opacity-"></div>
                 <div className="layout-content">
                     <div className="container-fluid flex-grow-1 container-p-y">
                         <div class="container px-0">
@@ -38,6 +38,7 @@ class Careers extends React.Component {
                             </div>
                         </div>
                     </div>
+                </div>
                 </div>
                 </div>
             </React.Fragment>

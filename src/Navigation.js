@@ -27,8 +27,6 @@ class Navigation extends React.Component{
           <Route path="/contacts" component={Contacts} />
           <Route path="/workoutplans" component={WorkOutPlans} />
           <Route path="/careers" component={Careers} />
-
-
         </Switch>
       )
   }
