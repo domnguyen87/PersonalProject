@@ -28,7 +28,7 @@ class Register extends React.Component {
                     <div className="align-items-center p-1">
                       {/* <!-- Inner container --> */}
                       {/* <!-- Have to add `.d-flex` to control width via `.col-*` classes --> */}
-                      <div className="d-flex col-md-5 px-0 px-xl-4 mx-auto">
+                      <div className="d-flex col-md-3 px-0 px-xl-4 mx-auto">
                         <div className="w-100">
 
                           {/* <!-- Logo --> */}
@@ -64,7 +64,7 @@ class Register extends React.Component {
                             <div className="d-flex justify-content-between align-items-center m-0">
                               <label className="custom-control custom-checkbox m-0">
                                 <input type="checkbox" className="custom-control-input"/>
-                                <span className="custom-control-label">Receive exciting features, news & special offers from Bodybuilding.com.</span>
+                                <span className="custom-control-label small">Receive exciting features, news & special offers from Bodybuilding.com.</span>
                               </label>
                               <button type="button" className="btn btn-primary">Sign Up</button>
                             </div>

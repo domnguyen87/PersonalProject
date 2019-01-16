@@ -148,7 +148,7 @@ class Login extends React.Component {
                     <div className="align-items-center p-1">
                       {/* <!-- Inner container --> */}
                       {/* <!-- Have to add `.d-flex` to control width via `.col-*` classes --> */}
-                      <div className="d-flex col-md-5 px-0 px-xl-4 mx-auto">
+                      <div className="d-flex col-md-3 px-0 px-xl-4 mx-auto">
                         <div className="w-100">
 
                           {/* <!-- Logo --> */}
