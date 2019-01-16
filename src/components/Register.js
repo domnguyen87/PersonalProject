@@ -4,6 +4,11 @@ import UserAccountService from '../services/UserAccountService'
 class Register extends React.Component {
     constructor(props) {
         super(props)
+        this.state ={
+          email:'',
+          password:'',
+          confirmPassword:''
+        }
 
     }
 
@@ -14,7 +19,6 @@ class Register extends React.Component {
       password: this.state.password,
       confirmPassword: this.state.confirmPassword
     }
-
     UserAccountService.register(data, this.onRegisterSuccess, this.onRegisterError)
   }
 
@@ -24,6 +28,14 @@ class Register extends React.Component {
 
   onRegisterError = err => {
     console.log(err)
+  }
+
+  handleChange = evt => {
+    const key = evt.target.name
+    const val = evt.target.value
+    this.setState({
+      [key]: val
+    })
   }
   
 
@@ -70,7 +82,7 @@ class Register extends React.Component {
                                 value={this.state.email}
                                 onChange={this.handleChange}
                                 className="form-control"/>
-                                {this.state.formError.email}
+                                {/* {this.state.formError.email} */}
                           </div>
                             {/* <div className="form-group">
                               <label className="form-label d-flex justify-content-between align-items-end">UserName</label>
@@ -86,7 +98,7 @@ class Register extends React.Component {
                                 value={this.state.password}
                                 onChange={this.handleChange}
                                 className="form-control"/>
-                                {this.state.formError.password}
+                                {/* {this.state.formError.password} */}
                             </div>
                             <div className="form-group">
                               <label className="form-label d-flex justify-content-between align-items-end">
@@ -104,7 +116,7 @@ class Register extends React.Component {
                                 <input type="checkbox" className="custom-control-input"/>
                                 <span className="custom-control-label small">Receive exciting features, news & special offers from Bodybuilding.com.</span>
                               </label>
-                              <button type="button" className="btn btn-primary" disabled={!this.state.isFormValid} onClick={this.onRegister}>Sign Up</button>
+                              <button type="button" className="btn btn-primary"  onClick={this.onRegister}>Sign Up</button>
                             </div>
                           </form>
                           {/* <!-- / Form --> */}
