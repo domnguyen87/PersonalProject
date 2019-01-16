@@ -1,6 +1,6 @@
 import React from 'react'
 import FormErrors from './common/FormErrors'
-import UserService from '../services/UserService'
+import UserService from '../services/UserAccountService'
 import { Redirect } from 'react-router-dom'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 import { withRouter } from 'react-router-dom';
