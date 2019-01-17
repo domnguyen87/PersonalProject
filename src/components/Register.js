@@ -19,6 +19,7 @@ class Register extends React.Component {
       password: this.state.password,
       confirmPassword: this.state.confirmPassword
     }
+    console.log(data)
     UserAccountService.register(data, this.onRegisterSuccess, this.onRegisterError)
   }
 
