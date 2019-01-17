@@ -20,7 +20,7 @@ namespace C64AdoNetSample
                 //using (SqlCommand cmd = new SqlCommand("Person_Insert", conn))
                 //{
                 //    cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                //
+
                 //    //OutParameter
                 //    SqlParameter parm = new SqlParameter();
                 //    parm.ParameterName = "@Id";
@@ -28,8 +28,8 @@ namespace C64AdoNetSample
                 //    parm.SqlDbType = System.Data.SqlDbType.Int;
 
                 //    cmd.Parameters.Add(parm);
-                //    cmd.Parameters.Add("@FirstName", "sd");
-                //    cmd.Parameters.Add("@LastName", "asd");
+                //    cmd.Parameters.Add("@FirstName", "boooo");
+                //    cmd.Parameters.Add("@LastName", "bammmm");
                 //    cmd.Parameters.Add("@Gender", "F");
 
                 //    cmd.ExecuteNonQuery();
@@ -97,29 +97,37 @@ namespace C64AdoNetSample
 
                 //}
 
-                using (SqlCommand cmd = new SqlCommand("Person_SelectUsers", conn))
+                //using (SqlCommand cmd = new SqlCommand("Person_SelectUsers", conn))
+                //{
+                //    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                //    SqlDataReader reader = cmd.ExecuteReader();
+                //    do
+                //    {
+                //        while (reader.Read())
+                //        {
+                //            int idx = 0;
+                //            Console.WriteLine(string.Format("{0}: {1}", reader.GetName(idx), reader.GetValue(idx)));
+
+                //            idx++;
+                //            Console.WriteLine(string.Format("{0}: {1}", reader.GetName(idx), reader.GetString(idx)));
+
+                //            idx++;
+                //            Console.WriteLine(string.Format("{0}: {1}", reader.GetName(idx), reader.GetString(idx)));
+
+                //            idx++;
+                //            Console.WriteLine(string.Format("{0}: {1}", reader.GetName(idx), reader.GetValue(idx)));
+
+                //            Console.WriteLine("");
+                //        }
+                //    } while (reader.NextResult());
+                //}
+
+                using (SqlCommand cmd = new SqlCommand("Person_delete", conn))
                 {
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                    SqlDataReader reader = cmd.ExecuteReader();
-                    do
-                    {
-                        while (reader.Read())
-                        {
-                            int idx = 0;
-                            Console.WriteLine(string.Format("{0}: {1}", reader.GetName(idx), reader.GetValue(idx)));
+                    cmd.Parameters.AddWithValue("@Id", 3);
+                    cmd.ExecuteNonQuery();
 
-                            idx++;
-                            Console.WriteLine(string.Format("{0}: {1}", reader.GetName(idx), reader.GetString(idx)));
-
-                            idx++;
-                            Console.WriteLine(string.Format("{0}: {1}", reader.GetName(idx), reader.GetString(idx)));
-
-                            idx++;
-                            Console.WriteLine(string.Format("{0}: {1}", reader.GetName(idx), reader.GetValue(idx)));
-
-                            Console.WriteLine("");
-                        }
-                    } while (reader.NextResult());
                 }
 
 
