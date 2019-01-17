@@ -1,0 +1,7 @@
+C:\PersonalProject\sandbox\C64AdoNetSample\C64AdoNetSample\bin\Debug\C64AdoNetSample.exe.config
+C:\PersonalProject\sandbox\C64AdoNetSample\C64AdoNetSample\bin\Debug\C64AdoNetSample.exe
+C:\PersonalProject\sandbox\C64AdoNetSample\C64AdoNetSample\bin\Debug\C64AdoNetSample.pdb
+C:\PersonalProject\sandbox\C64AdoNetSample\C64AdoNetSample\obj\Debug\C64AdoNetSample.csprojAssemblyReference.cache
+C:\PersonalProject\sandbox\C64AdoNetSample\C64AdoNetSample\obj\Debug\C64AdoNetSample.csproj.CoreCompileInputs.cache
+C:\PersonalProject\sandbox\C64AdoNetSample\C64AdoNetSample\obj\Debug\C64AdoNetSample.exe
+C:\PersonalProject\sandbox\C64AdoNetSample\C64AdoNetSample\obj\Debug\C64AdoNetSample.pdb

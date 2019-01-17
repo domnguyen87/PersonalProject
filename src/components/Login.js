@@ -11,65 +11,13 @@ class Login extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            email: '',
-            password: '',
-            emailValid: false,
-            passwordValid: false,
-            formValid: false,
-            formErrors: {
-                email: '',
-                password: ''
-            },
-            loginValid: false,
-            loginSuccess: false,
-            modal: false
+            
         }
-        this.toggle = this.toggle.bind(this)
     }
 
-    toggle() {
-        this.setState({
-          modal: !this.state.modal
-        })
-    }
+    
 
-    handleChange = evt => {
-        const key = evt.target.name;
-        const value = evt.target.value;
-        this.setState({ 
-          [key]: value 
-        }, this.validateField(key, value))
-    }
-
-    validateField = (key, value) => {
-        let fieldErrors = this.state.formErrors;
-        let emailValid = this.state.emailValid;
-        let passwordValid = this.state.passwordValid;
-
-        switch (key) {
-            case 'email':
-                emailValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
-                fieldErrors.email = emailValid ? '' : ' is invalid';
-                break;
-            case 'password':
-                passwordValid = value.match(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!$%^&*-]).{8,}/)   //value.length >= 8;
-                fieldErrors.password = passwordValid ? '' : 'Password is required';
-                break;
-        }
-
-        this.setState({
-            formErrors: fieldErrors,
-            emailValid: emailValid,
-            passwordValid: passwordValid
-        }, this.validateForm);
-    }
-
-    validateForm() {
-        this.setState({
-            formValid: this.state.emailValid
-                && this.state.passwordValid
-        });
-    }
+    
 
     handleClick = evt => {
         console.log('login clicked')
