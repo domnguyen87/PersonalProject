@@ -197,6 +197,7 @@ C:\PersonalProject\sandbox\C64SampleApp\C64SampleApp\bin\System.Web.WebPages.Dep
 C:\PersonalProject\sandbox\C64SampleApp\C64SampleApp\bin\System.Web.WebPages.dll
 C:\PersonalProject\sandbox\C64SampleApp\C64SampleApp\bin\System.Web.WebPages.Razor.dll
 C:\PersonalProject\sandbox\C64SampleApp\C64SampleApp\bin\WebGrease.dll
+C:\PersonalProject\sandbox\C64SampleApp\C64SampleApp\bin\C64AdoNetSample.pdb
 C:\PersonalProject\sandbox\C64SampleApp\C64SampleApp\bin\Newtonsoft.Json.xml
 C:\PersonalProject\sandbox\C64SampleApp\C64SampleApp\bin\System.Net.Http.Formatting.xml
 C:\PersonalProject\sandbox\C64SampleApp\C64SampleApp\bin\System.Web.Helpers.xml
@@ -232,3 +233,9 @@ C:\PersonalProject\sandbox\C64SampleApp\C64SampleApp\obj\Debug\C64SampleApp.cspr
 C:\PersonalProject\sandbox\C64SampleApp\C64SampleApp\obj\Debug\C64SampleApp.csproj.CopyComplete
 C:\PersonalProject\sandbox\C64SampleApp\C64SampleApp\obj\Debug\C64SampleApp.dll
 C:\PersonalProject\sandbox\C64SampleApp\C64SampleApp\obj\Debug\C64SampleApp.pdb
+C:\PersonalProject\sandbox\C64SampleApp\C64SampleApp\bin\Unity.Abstractions.dll
+C:\PersonalProject\sandbox\C64SampleApp\C64SampleApp\bin\Unity.Container.dll
+C:\PersonalProject\sandbox\C64SampleApp\C64SampleApp\bin\Unity.Mvc.dll
+C:\PersonalProject\sandbox\C64SampleApp\C64SampleApp\bin\WebActivatorEx.dll
+C:\PersonalProject\sandbox\C64SampleApp\C64SampleApp\bin\C64AdoNetSample.dll
+C:\PersonalProject\sandbox\C64SampleApp\C64SampleApp\bin\C64AdoNetSample.dll.config
