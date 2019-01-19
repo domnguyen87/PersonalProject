@@ -1,6 +1,7 @@
-﻿using C64AdoNetSample.Domain;
-using C64AdoNetSample.Person;
+﻿
+using C64SampleApp.Domain;
 using C64SampleApp.Responses;
+using C64SampleApp.Services.Person;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,12 @@ namespace C64SampleApp.Controllers
     [RoutePrefix("api/person")]
     public class PersonController : ApiController
     {
-        private IPersonService _personService;
+        private readonly IPersonService _personService;
+
+        public PersonController(IPersonService personService)
+        {
+            _personService = personService;
+        }
 
         [HttpPost]
         [Route]
@@ -24,7 +30,7 @@ namespace C64SampleApp.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    ItemResponse<bool> resp = new ItemResponse<bool>();
+                    ItemResponse<int> resp = new ItemResponse<int>();
                     resp.Item = _personService.Create(model);
                     return Request.CreateResponse(HttpStatusCode.OK, resp);
                 }
@@ -40,9 +46,20 @@ namespace C64SampleApp.Controllers
             }
         }
 
-        public PersonController()
+        [HttpGet]
+        [Route]
+        public HttpResponseMessage SelectAll()
         {
-            
+            try
+            {
+                ItemResponse<List<PersonDomain>> resp = new ItemResponse<List<PersonDomain>>();
+                resp.Item = _personService.SelectAll();
+                return Request.CreateResponse(HttpStatusCode.OK, resp);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadGateway, ex);
+            }
         }
     }
 }

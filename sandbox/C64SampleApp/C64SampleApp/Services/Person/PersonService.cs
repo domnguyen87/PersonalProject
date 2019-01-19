@@ -3,13 +3,14 @@ using C64SampleApp.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 
 namespace C64SampleApp.Services.Person
 {
-    public class PersonService 
+    public class PersonService : IPersonService
     {
         //connections not the ssame as eleveight. check here if there's any problems
         IDataProvider _dataProvider;
@@ -38,6 +39,51 @@ namespace C64SampleApp.Services.Person
             );
             return returnVal;
         }
+
+        public List<PersonDomain> SelectAll()
+        {
+            List<PersonDomain> returnVal = new List<PersonDomain>();
+            _dataProvider.ExecuteCmd(
+                "Person_SelectAll",
+                inputParamMapper: null,
+                singleRecordMapper: delegate (IDataReader reader, short set)
+                {
+                    PersonDomain model = new PersonDomain();
+                    int idx = 0;
+                    model.Id = reader.GetInt32(idx++);
+                    model.FirstName = reader.GetString(idx++);
+                    model.LastName = reader.GetString(idx++);
+                    model.Gender = reader.GetString(idx++);
+
+                    returnVal.Add(model);
+                }
+            );
+            return returnVal;
+        }
+
+        public PersonDomain SelectById(int id)
+        {
+            PersonDomain returnVal = new PersonDomain();
+            _dataProvider.ExecuteCmd(
+                "Person_SelectById",
+                inputParamMapper: delegate (SqlParameterCollection paramCol)
+                {
+                    paramCol.AddWithValue("@Id", id);
+                },
+                singleRecordMapper: delegate (IDataReader reader, short set)
+                {
+                    int idx = 0;
+                    returnVal.Id = reader.GetInt32(idx++);
+                    returnVal.FirstName = reader.GetString(idx++);
+                    returnVal.LastName = reader.GetString(idx++);
+                    returnVal.Gender = reader.GetString(idx++);
+
+                }
+                );
+            return returnVal;
+        }
+
+        public 
 
 
 
