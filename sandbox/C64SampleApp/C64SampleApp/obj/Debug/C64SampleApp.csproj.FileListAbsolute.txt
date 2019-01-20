@@ -248,3 +248,4 @@ C:\PersonalProject\sandbox\C64SampleApp\C64SampleApp\obj\Debug\C64SampleApp.cspr
 C:\PersonalProject\sandbox\C64SampleApp\C64SampleApp\obj\Debug\C64SampleApp.csproj.CopyComplete
 C:\PersonalProject\sandbox\C64SampleApp\C64SampleApp\obj\Debug\C64SampleApp.dll
 C:\PersonalProject\sandbox\C64SampleApp\C64SampleApp\obj\Debug\C64SampleApp.pdb
+C:\PersonalProject\sandbox\C64SampleApp\C64SampleApp\obj\Debug\C64SampleApp.csprojAssemblyReference.cache

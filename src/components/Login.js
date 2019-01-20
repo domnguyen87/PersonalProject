@@ -30,7 +30,7 @@ class Login extends React.Component {
 
     onLoginSuccess = (resp) => {
         console.log(resp);
-        this.props.history.push('/')
+        this.props.history.push('/workoutplans')
         // this.setState({ loginSuccess: true })
     }
 

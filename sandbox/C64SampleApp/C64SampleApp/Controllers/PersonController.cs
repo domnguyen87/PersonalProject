@@ -61,5 +61,65 @@ namespace C64SampleApp.Controllers
                 return Request.CreateResponse(HttpStatusCode.BadGateway, ex);
             }
         }
+
+        [HttpGet]
+        [Route("{id:int}")]
+        public HttpResponseMessage SelectById(int id)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    ItemResponse<PersonDomain> resp = new ItemResponse<PersonDomain>();
+                    resp.Item = _personService.SelectById(id);
+                    return Request.CreateResponse(HttpStatusCode.OK, resp);
+                }
+                else
+                {
+                    return Request.CreateResponse(HttpStatusCode.BadRequest, ModelState);
+                }
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, ex);
+            }
+        }
+
+        [HttpPut]
+        [Route("{id:int}")]
+        public HttpResponseMessage Update(PersonDomain model)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    _personService.Update(model);
+                    SuccessResponse resp = new SuccessResponse();
+                    return Request.CreateResponse(HttpStatusCode.OK, resp);
+                }
+                else
+                {
+                    return Request.CreateResponse(HttpStatusCode.BadRequest, ModelState);
+                }
+            } catch (Exception ex) {
+
+                return Request.CreateResponse(HttpStatusCode.BadRequest, ex);
+            }
+        }
+
+        [HttpDelete]
+        [Route("{id:int}")]
+        public HttpResponseMessage Delete(int id)
+        {
+            try {
+                _personService.Delete(id);
+                SuccessResponse resp = new SuccessResponse();
+                return Request.CreateResponse(HttpStatusCode.OK, resp);
+            } catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, ex);
+            }
+        }
+
     }
 }

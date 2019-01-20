@@ -1,6 +1,10 @@
+using C64SampleApp.Controllers;
 using C64SampleApp.Interfaces;
+using C64SampleApp.Models;
 using C64SampleApp.Providers;
 using C64SampleApp.Services.Person;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using System.Configuration;
 using System.Security.Principal;
 using System.Web;
@@ -24,8 +28,8 @@ namespace C64SampleApp
                 new InjectionConstructor(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString));
             //container.RegisterType<IPrincipal>(new TransientLifetimeManager(),
             //new InjectionFactory(con => HttpContext.Current.User));
-            //container.RegisterType<IUserStore<ApplicationUser>, UserStore<ApplicationUser>>();
-            //container.RegisterType<AccountController>(new InjectionConstructor());
+            container.RegisterType<IUserStore<ApplicationUser>, UserStore<ApplicationUser>>();
+            container.RegisterType<AccountController>(new InjectionConstructor());
             container.RegisterType<IPersonService, PersonService>();
 
             GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);

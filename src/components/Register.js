@@ -1,5 +1,7 @@
 import React from 'react'
 import UserAccountService from '../services/UserAccountService'
+import Login from './Login'
+import { Redirect } from 'react-router-dom'
 
 class Register extends React.Component {
     constructor(props) {
@@ -7,7 +9,8 @@ class Register extends React.Component {
         this.state ={
           email:'',
           password:'',
-          confirmPassword:''
+          confirmPassword:'',
+          
         }
 
     }
@@ -25,6 +28,7 @@ class Register extends React.Component {
 
   onRegisterSuccess = resp => {
     console.log(resp)
+    this.props.history.push('/login')
   }
 
   onRegisterError = err => {

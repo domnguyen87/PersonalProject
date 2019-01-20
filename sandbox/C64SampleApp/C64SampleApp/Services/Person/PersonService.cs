@@ -12,7 +12,6 @@ namespace C64SampleApp.Services.Person
 {
     public class PersonService : IPersonService
     {
-        //connections not the ssame as eleveight. check here if there's any problems
         IDataProvider _dataProvider;
 
         public int Create(PersonDomain personDomain)
@@ -83,10 +82,31 @@ namespace C64SampleApp.Services.Person
             return returnVal;
         }
 
-        public 
+        public void Update(PersonDomain model)
+        {
+            _dataProvider.ExecuteNonQuery(
+                "Person_Update",
+                inputParamMapper: delegate (SqlParameterCollection paramCol)
+                {
+                    paramCol.AddWithValue("@Id", model.Id);
+                    paramCol.AddWithValue("@FirstName", model.FirstName);
+                    paramCol.AddWithValue("@LastName", model.LastName);
+                    paramCol.AddWithValue("@Gender", model.Gender);
+                },
+                returnParameters: null
+                );
+        }
 
-
-
+        public void Delete(int id)
+        {
+            _dataProvider.ExecuteNonQuery(
+                "Person_Delete",
+                inputParamMapper: delegate (SqlParameterCollection paramCol)
+                {
+                    paramCol.AddWithValue("@Id", id);
+                }
+                );
+        }
 
 
         //public SqlConnection conn;
