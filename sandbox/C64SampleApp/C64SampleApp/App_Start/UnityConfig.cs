@@ -2,6 +2,7 @@ using C64SampleApp.Controllers;
 using C64SampleApp.Interfaces;
 using C64SampleApp.Models;
 using C64SampleApp.Providers;
+using C64SampleApp.Services.Careers;
 using C64SampleApp.Services.Person;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
@@ -31,6 +32,7 @@ namespace C64SampleApp
             container.RegisterType<IUserStore<ApplicationUser>, UserStore<ApplicationUser>>();
             container.RegisterType<AccountController>(new InjectionConstructor());
             container.RegisterType<IPersonService, PersonService>();
+            container.RegisterType<ICareersService, CareersService>();
 
             GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
             //System.Web.Http.GlobalConfiguration.Configuration.DependencyResolver = new Unity.WebApi.UnityDependencyResolver(container);
