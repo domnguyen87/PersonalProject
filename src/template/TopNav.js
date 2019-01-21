@@ -22,7 +22,6 @@ class TopNav extends React.Component {
                     <TopLink path="/workoutplans" name="Work Out Plans"  />
                     <TopLink path="/contacts" name="Personal Training"  />
                     <TopLink path="/store" name="Store"  />
-                    <TopLink path="/profile" name="Profile"  />
                 
                     {/* <div className="navbar-nav align-items-lg-center justify-content-right"> */}
                     <div className="navbar-nav align-items-lg-center ml-auto">

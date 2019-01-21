@@ -29,8 +29,18 @@ class Careers extends React.Component {
         return(
             <React.Fragment>
                 <div class="ui-rect ui-rect-30 ui-bg-cover" style={{backgroundImage: "url('assets/img/bg/Pool.jpg')"}}></div>
+                {/* <div className="position-relative pt-5 pb-4">
+                    <div className="portfolio-image" style={{backgroundImage: "url('assets/img/bg/Pool.jpg')"}}></div>
+                    <div className="align-items-end py-5 px-4 px-md-5">
+                        <div className="font-secondary py-md-4 py-xl-5 mx-lg-5">
+                            <div className="portfolio-caption text-white font-weight-semibold">
+                                <div className="text-tiny font-weight-light">IT ALWAYS SEEMS<br/>IMPOSSIBLE UNTIL<br/>IT'S DONE</div>
+                            </div>
+                        </div>
+                    </div>
+                </div> */}
                 <div className="authentication-wrapper authentication-3">
-                <div className="d-none d-lg-flex col-md-12 align-items-center " >
+                <div className="d-none d-lg-flex col-md-6 offset-md-3 align-items-center " >
                 <div className="layout-content">
                     <div className="container-fluid flex-grow-1 container-p-y">
                         <div class="container px-0">

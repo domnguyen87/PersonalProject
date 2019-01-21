@@ -8,7 +8,7 @@ class CareerService {
     }
 
     static getAllCareer(onSuccess, onError) {
-        axios.get('/api/career',{ withCredentials: true })
+        axios.get('api/career',{ withCredentials: true })
             .then(onSuccess)
             .catch(onError)
     }
