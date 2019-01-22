@@ -15,6 +15,7 @@ class Layout extends React.Component {
                 <div className="layout-wrapper layout-1">
                     <div className="layout-inner">
                         <TopNav />
+                        <br />
                         <div className="layout-container">
                             <div className="layout-content">
                                 <Navigation />

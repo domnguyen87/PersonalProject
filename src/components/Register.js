@@ -1,10 +1,48 @@
 import React from 'react'
+import UserAccountService from '../services/UserAccountService'
+import Login from './Login'
+import { Redirect } from 'react-router-dom'
 
 class Register extends React.Component {
     constructor(props) {
         super(props)
+        this.state ={
+          email:'',
+          password:'',
+          confirmPassword:'',
+          
+        }
 
     }
+
+  onRegister = evt => {
+    evt.preventDefault()
+    const data ={
+      email: this.state.email,
+      password: this.state.password,
+      confirmPassword: this.state.confirmPassword
+    }
+    console.log(data)
+    UserAccountService.register(data, this.onRegisterSuccess, this.onRegisterError)
+  }
+
+  onRegisterSuccess = resp => {
+    console.log(resp)
+    this.props.history.push('/login')
+  }
+
+  onRegisterError = err => {
+    console.log(err)
+  }
+
+  handleChange = evt => {
+    const key = evt.target.name
+    const val = evt.target.value
+    this.setState({
+      [key]: val
+    })
+  }
+  
 
   render() {
 
@@ -41,9 +79,15 @@ class Register extends React.Component {
                           <form className="my-3">
                           <div className="form-group">
                               <label className="form-label d-flex justify-content-between align-items-end">
-                              Email
+                                Email
                               </label>
-                              <input type="text" className="form-control" />
+                              <input 
+                                type="text"
+                                name="email"
+                                value={this.state.email}
+                                onChange={this.handleChange}
+                                className="form-control"/>
+                                {/* {this.state.formError.email} */}
                           </div>
                             {/* <div className="form-group">
                               <label className="form-label d-flex justify-content-between align-items-end">UserName</label>
@@ -53,20 +97,31 @@ class Register extends React.Component {
                               <label className="form-label d-flex justify-content-between align-items-end">
                                 <div>Password</div>
                               </label>
-                              <input type="password" className="form-control"/>
+                              <input 
+                                type="password"
+                                name="password"
+                                value={this.state.password}
+                                onChange={this.handleChange}
+                                className="form-control"/>
+                                {/* {this.state.formError.password} */}
                             </div>
                             <div className="form-group">
                               <label className="form-label d-flex justify-content-between align-items-end">
                                 <div>Confirm Password</div>
                               </label>
-                              <input type="password" className="form-control"/>
+                              <input 
+                                type="password"
+                                name="confirmPassword"
+                                value={this.state.confirmPassword}
+                                onChange={this.handleChange} 
+                                className="form-control"/>
                             </div>
                             <div className="d-flex justify-content-between align-items-center m-0">
                               <label className="custom-control custom-checkbox m-0">
                                 <input type="checkbox" className="custom-control-input"/>
                                 <span className="custom-control-label small">Receive exciting features, news & special offers from Bodybuilding.com.</span>
                               </label>
-                              <button type="button" className="btn btn-primary">Sign Up</button>
+                              <button type="button" className="btn btn-primary"  onClick={this.onRegister}>Sign Up</button>
                             </div>
                           </form>
                           {/* <!-- / Form --> */}
