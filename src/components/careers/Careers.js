@@ -91,7 +91,8 @@ class Careers extends React.Component {
                                     </div>
                                   </form>
                                 </div>
-                              </div>
+                            </div>
+                            {/* MODAL */}
                             </div>
                             <div className="text-center text-muted text-big mx-auto mt-3" style={{maxWidth: "500px"}}>
                                 Innovate to Inspire

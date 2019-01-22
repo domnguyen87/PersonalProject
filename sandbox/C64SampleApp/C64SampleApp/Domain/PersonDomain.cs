@@ -18,5 +18,25 @@ namespace C64SampleApp.Domain
 
         [Required]
         public string Gender { get; set; }
+
+        public int Age { get; set; }
+
+        public string HeadLine { get; set; }
+
+        public string Location { get; set; }
+
+        public string Twitter { get; set; }
+
+        public string Facebook { get; set; }
+
+        public string Instagram { get; set; }
+
+        public int Height { get; set; }
+
+        public int Weight { get; set; }
+
+        public int BodyFat { get; set; }
+
+
     }
 }

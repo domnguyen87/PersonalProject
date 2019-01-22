@@ -30,6 +30,15 @@ namespace C64SampleApp.Services.Person
                     paramCol.AddWithValue("@FirstName", personDomain.FirstName);
                     paramCol.AddWithValue("@LastName", personDomain.LastName);
                     paramCol.AddWithValue("@Gender", personDomain.Gender);
+                    paramCol.AddWithValue("@Age", personDomain.Age);
+                    paramCol.AddWithValue("@HeadLine", personDomain.HeadLine);
+                    paramCol.AddWithValue("@Location", personDomain.Location);
+                    paramCol.AddWithValue("@Twitter", personDomain.Twitter);
+                    paramCol.AddWithValue("@Facebook", personDomain.Facebook);
+                    paramCol.AddWithValue("@Instagram", personDomain.Instagram);
+                    paramCol.AddWithValue("@Height", personDomain.Height);
+                    paramCol.AddWithValue("@Weight", personDomain.Weight);
+                    paramCol.AddWithValue("@BodyFat", personDomain.BodyFat);
                 },
                 returnParameters: delegate (SqlParameterCollection parmaCol)
                 {
