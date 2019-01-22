@@ -62,6 +62,16 @@ namespace C64SampleApp.Services.Person
                     model.FirstName = reader.GetString(idx++);
                     model.LastName = reader.GetString(idx++);
                     model.Gender = reader.GetString(idx++);
+                    model.Age = reader.GetInt32(idx++);
+                    model.HeadLine = reader.GetString(idx++);
+                    model.Location = reader.GetString(idx++);
+                    model.Twitter = reader.GetString(idx++);
+                    model.Facebook = reader.GetString(idx++);
+                    model.Instagram = reader.GetString(idx++);
+                    model.Height = reader.GetInt32(idx++);
+                    model.Weight = reader.GetInt32(idx++);
+                    model.BodyFat = reader.GetInt32(idx++);
+
 
                     returnVal.Add(model);
                 }
@@ -85,6 +95,15 @@ namespace C64SampleApp.Services.Person
                     returnVal.FirstName = reader.GetString(idx++);
                     returnVal.LastName = reader.GetString(idx++);
                     returnVal.Gender = reader.GetString(idx++);
+                    returnVal.Age = reader.GetInt32(idx++);
+                    returnVal.HeadLine = reader.GetString(idx++);
+                    returnVal.Location = reader.GetString(idx++);
+                    returnVal.Twitter = reader.GetString(idx++);
+                    returnVal.Facebook = reader.GetString(idx++);
+                    returnVal.Instagram = reader.GetString(idx++);
+                    returnVal.Height = reader.GetInt32(idx++);
+                    returnVal.Weight = reader.GetInt32(idx++);
+                    returnVal.BodyFat = reader.GetInt32(idx++);
 
                 }
                 );
@@ -101,6 +120,15 @@ namespace C64SampleApp.Services.Person
                     paramCol.AddWithValue("@FirstName", model.FirstName);
                     paramCol.AddWithValue("@LastName", model.LastName);
                     paramCol.AddWithValue("@Gender", model.Gender);
+                    paramCol.AddWithValue("@Age", model.Age);
+                    paramCol.AddWithValue("@HeadLine", model.HeadLine);
+                    paramCol.AddWithValue("@Location", model.Location);
+                    paramCol.AddWithValue("@Twitter", model.Twitter);
+                    paramCol.AddWithValue("@Facebook", model.Facebook);
+                    paramCol.AddWithValue("@Instagram", model.Instagram);
+                    paramCol.AddWithValue("@Height", model.Height);
+                    paramCol.AddWithValue("@Weight", model.Weight);
+                    paramCol.AddWithValue("@BodyFat", model.BodyFat);
                 },
                 returnParameters: null
                 );
