@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 class profile extends React.Component {
     constructor(props) {
         super(props)
@@ -23,12 +24,26 @@ class profile extends React.Component {
                     {/* HEADER */}
                         <div className="bg-white container-m--x container-m--y mb-4">
                             <div className="media col-md-10 col-lg-8 col-xl-7 py-5 mx-auto">
-                                <img src="assets/img/avatars/5.png" alt class="d-block ui-w-100 rounded-circle" />
-                                <div className="media-body ml-5">
-                                    <h4 className="font-weight-bold mb-4">Nellie Maxwell</h4>
-                                    <div className="text-muted mb-4">
-                                    Lorem ipsum dolor sit amet, nibh suavitate qualisque ut nam. Ad harum primis electram duo, porro principes ei has.
+                                <img src="/assets/img/avatars/rock.png" width="25%" alt="" className="ui-w-55 rounded-circle" />
+                                <div className="media-body ml-5 text-left">
+                                    <h4 className="font-weight-bold mb-4">Dom Nguyen</h4>
+                                    <div className="text-muted mb-4 small">
+                                    Cardio? Ain't nobody got time for that
                                     </div>
+                                    <div className="row small justify-content-sm-between">
+                                      <a href="javascript:void(0)" class="d-block text-dark mb-2">
+                                        <i class="ion ion-logo-twitter ui-w-30 text-center text-twitter"></i> @nmaxwell
+                                      </a>
+                                      <a href="javascript:void(0)" class="d-block text-dark mb-2">
+                                        <i class="ion ion-logo-facebook ui-w-30 text-center text-facebook"></i> nmaxwell
+                                      </a>
+                                      <a href="javascript:void(0)" class="d-block text-dark mb-0">
+                                        <i class="ion ion-logo-instagram ui-w-30 text-center text-instagram"></i> nmaxwell
+                                      </a>
+                                      </div>
+                                      <a href="javascript:void(0)" class="btn btn-primary btn-round">+&nbsp; Follow</a>
+                                      &nbsp;
+                                      <a href="javascript:void(0)" class="btn btn-primary btn-round">DM me</a>
                                 </div>
                             </div>
                             <hr class="m-0" />
@@ -42,12 +57,12 @@ class profile extends React.Component {
                             <div className="col-md-3">
                                 <div className="card mb-4">
                                 <div className="card-body">
-                                <div className="row">
-                                    <div className="text-muted small">Name:Dom</div>
-                                    <div className="text-muted small">Age:33</div>
-                                    <div className="text-muted small">Gender:Male</div>
-                                    <div className="text-muted small">Location:Orange County</div>
-                                    <div className="text-muted small">Member Since:2008</div>
+                                <div className="text-left" style={{fontSize:"15px"}}>
+                                    <div className="text">Name:Dom</div>
+                                    <div className="text">Age:33</div>
+                                    <div className="text">Gender:Male</div>
+                                    <div className="text">Location:Orange County</div>
+                                    <div className="text">Member Since:2008</div>
                                 </div>
                                 </div>
                                 </div>
