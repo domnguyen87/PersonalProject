@@ -1,16 +1,13 @@
 ﻿using C64SampleApp.Domain;
 using C64SampleApp.Interfaces;
 using C64SampleApp.Requests;
-using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
 
 namespace C64SampleApp.Services.FileStorage
 {
-    public class FileStorageService
+    public class FileStorageService : IFileStorageService
     {
         IDataProvider _dataProvider;
 
