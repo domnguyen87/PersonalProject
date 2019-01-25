@@ -250,7 +250,6 @@
     <Compile Include="Controllers\FileStorageController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PersonController.cs" />
-    <Compile Include="Controllers\ProfileImageController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Domain\CareersDomain.cs" />
     <Compile Include="Domain\FileStorageDomain.cs" />

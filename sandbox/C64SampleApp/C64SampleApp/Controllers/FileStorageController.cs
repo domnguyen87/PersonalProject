@@ -121,16 +121,44 @@ namespace C64SampleApp.Controllers
         {
             try
             {
-                ItemsResponse<FileStorageDomain> resp = new ItemsResponse<FileStorageDomain>
+                // GETTING THE RAW RESPONSE FROM GET ALL
+                ItemsResponse<FileStorageDomain> rawResp = new ItemsResponse<FileStorageDomain>
                 {
                     Items = _fileStorageService.SelectAll()
                 };
-                return Request.CreateResponse(HttpStatusCode.OK, resp);
+                var rawData = rawResp.Items;
+
+                // REMODELING THE rawData(FILESTORAGEDOMAIN) TO THE viewModelResp(FILESTORAGEVIEWMODEL)
+                List<FileStorageViewModel> viewModelResp = new List<FileStorageViewModel>();
+                for (int i = 0; i < rawData.Count; i++)
+                {
+                    viewModelResp.Add(new FileStorageViewModel
+                    {
+                        Id = rawData[i].Id,
+                        UserFileName = rawData[i].UserFileName,
+                        ImageUrl = awsResourceUrl + rawData[i].BasePath + rawData[i].SystemFileName,
+                        FileType = rawData[i].FileType,
+                    });
+                };
+
+                return Request.CreateResponse(HttpStatusCode.OK, viewModelResp);
             }
             catch (Exception ex)
             {
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
             }
+            //try
+            //{
+            //    ItemsResponse<FileStorageDomain> resp = new ItemsResponse<FileStorageDomain>
+            //    {
+            //        Items = _fileStorageService.SelectAll()
+            //    };
+            //    return Request.CreateResponse(HttpStatusCode.OK, resp);
+            //}
+            //catch (Exception ex)
+            //{
+            //    return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+            //}
         }
 
         [HttpGet]

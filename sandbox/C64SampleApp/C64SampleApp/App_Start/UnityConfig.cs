@@ -3,7 +3,9 @@ using C64SampleApp.Interfaces;
 using C64SampleApp.Models;
 using C64SampleApp.Providers;
 using C64SampleApp.Services.Careers;
+using C64SampleApp.Services.FileStorage;
 using C64SampleApp.Services.Person;
+using C64SampleApp.Services.ProfileImageService;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Configuration;
@@ -33,6 +35,8 @@ namespace C64SampleApp
             container.RegisterType<AccountController>(new InjectionConstructor());
             container.RegisterType<IPersonService, PersonService>();
             container.RegisterType<ICareersService, CareersService>();
+            container.RegisterType<IFileStorageService, FileStorageService>();
+            container.RegisterType<IProfileImageService, ProfileImageService>();
 
             GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
             //System.Web.Http.GlobalConfiguration.Configuration.DependencyResolver = new Unity.WebApi.UnityDependencyResolver(container);
