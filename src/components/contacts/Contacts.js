@@ -17,12 +17,16 @@ class Contacts extends React.Component {
     }
 
     componentDidMount() {
-        //Accounts.getAllAccounts(this.getAllAccountsSuccess, this.getAllAccountsError)
+        WebScrapeService.selectAll(this.WebScrapeSuccess, this.WebScrapeError)
     }
 
-    getAllAccountsSuccess = resp => {
+    WebScrapeSuccess = resp => {
         console.log(resp)
-        this.setState({ data:resp.data.item })
+        //this.setState({ data:resp.data.item })
+    }
+
+    WebScrapeError = err => {
+        console.log(err)
     }
 
     render() {
@@ -34,19 +38,20 @@ class Contacts extends React.Component {
                     </h3>
 
                     <div class="row contacts-col-view">
-                    {this.state.data.map((par) => {
+                    {/* {this.state.data.map((par) => {
                         return <ContactsComponent
                             key = {par.id}
                             id = {par.id}
-                            picture = {par.picture}
-                            name = {par.name}
+                            Title = {par.Title}
+                            Description ={par.Description}
+                            Image = {par.Image}
                             phone = {par.phone}
                             email = {par.email}
                             twitter = {par.twitter}
                             facebook = {par.facebook}
                             instagram = {par.instagram}
                         />
-                    })}
+                    })} */}
                     </div>
                 </div>
             </React.Fragment>
