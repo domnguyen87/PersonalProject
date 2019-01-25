@@ -1,5 +1,11 @@
 import React from 'react'
 import ProfileService from '../../services/ProfileService'
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+//import AvatarEditor from '../AvatarEditor'
+import Spinner from 'react-spinkit'
+import PicturesComponent from './PicturesComponent';
+import FileStorageService from '../../services/FileStorageService'
+
 
 
 class profile extends React.Component {
@@ -20,7 +26,9 @@ class profile extends React.Component {
             bodyFat:'',
             modal:false,
             data:[],
-            id:4
+            id:4,
+            profileImageModal: false,
+            pictureData: []
         }
 
         this.toggle = this.toggle.bind(this)
@@ -28,7 +36,18 @@ class profile extends React.Component {
 
     componentDidMount() {
         ProfileService.getByIdProfile(4, this.profileSuccess, this.profileError)
+        FileStorageService.selectall(this.getAllImagesSuccess, this.getAllImageError)
+
     }
+
+    getAllImagesSuccess = resp => {
+      console.log(resp.data)
+      this.setState({
+        pictureData:resp.data
+      })
+    }
+
+    
 
     profileSuccess = resp => {
       console.log(resp.data.Item)
@@ -48,9 +67,6 @@ class profile extends React.Component {
           bodyFat: data.BodyFat
       })
     }
-
-        
-
 
     submitClicked = evt => {
       evt.preventDefault();
@@ -105,8 +121,6 @@ class profile extends React.Component {
     console.log(err, "getbyiderror")
   }
 
-
-
     toggle() {
       this.setState({
         modal: !this.state.modal
@@ -116,6 +130,32 @@ class profile extends React.Component {
     profileError = err => {
       console.log(err)
     }
+
+    
+    profileImageToggle = () => {
+      this.setState({
+          profileImageModal: !this.state.profileImageModal
+      });
+    }
+
+    onClickDeleteProfileImage = e => {
+      // console.log('Delete Clicked');
+      this.setState({ sweetAlertConfirmShow: true });
+      // ProfileImageService.delete(this.props.profileImageId, this.onDeleteSuccessProfileImage, this.onDeleteErrorProfileImage)
+    }
+
+    onDeleteSuccessProfileImage = resp => {
+      console.log(resp)
+      // window.location.reload();
+      this.setState({
+          userImage: '/assets/img/avatars/defaultuser.jpg'
+      }, () => this.props.selectCurrentProfileImage());
+
+      // ProfileImageService.selectByProfileId(this.props.match.params.profileId, this.onSelectProfileImageSuccess, this.onSelectProfileImageError);
+  }
+
+
+
 
     render() {
 
@@ -128,8 +168,86 @@ class profile extends React.Component {
                     {/* HEADER */}
                         <div className="bg-white container-m--x container-m--y mb-4">
                             <div className="media col-md-10 col-lg-8 col-xl-7 py-5 mx-auto">
-                                <button type="button" onClick={this.editClicked} className="btn btn-link" data-toggle="modal" data-target="#modals-profile">Update Photo</button>
+                            {/* <label >Select An Image: {this.props.userImage === "/assets/img/avatars/defaultuser.jpg" || this.props.userImage === ''
+                                    ?
+                                    <Button className="btn btn-outline-danger btn-sm" onClick={this.profileImageToggle}
+                                    >Add Image</Button>
+                                    :
+                                    <Button className="btn btn-outline-danger btn-sm" onClick={this.onClickDeleteProfileImage}
+                                    >Delete Image</Button>}
+                                </label> */}
                                 <img src="/assets/img/avatars/rock.png" width="25%" alt="" className="ui-w-55 rounded-circle" />
+                                {/* <img src={this.props.userImage} width="100%" className="rounded-circle" /> */}
+                                {/* PROFILE IMAGE MODAL */}
+                                <Modal isOpen={this.state.profileImageModal} toggle={this.profileImageToggle} className="">
+                                    <div style={{
+                                        position: 'fixed',
+                                        top: '0',
+                                        // left: '0px',
+                                        width: '100%',
+                                        height: '100%',
+                                        background: 'black',
+                                        opacity: '.7',
+                                        zIndex: 99
+
+                                    }}
+                                        hidden={!this.state.loading ? true : false}
+                                    >
+                                    </div>
+                                    <div style={{
+                                        textAlign: 'center',
+                                        position: 'fixed',
+                                        marginTop: '50%',
+                                        marginBottom: 'auto',
+                                        marginLeft: 'auto',
+                                        marginRight: 'auto',
+                                        display: 'flex',
+                                        alignSelf: 'center',
+                                        transform: 'scale(5)',
+                                        zIndex: 100,
+                                    }}
+                                        hidden={!this.state.loading ? true : false}
+                                    >
+                                        <Spinner name="folding-cube" fadeIn='none' color="#26B4FF" />
+                                    </div>
+                                    <ModalHeader toggle={this.profileImageToggle}>Profile Image</ModalHeader>
+                                    <ModalBody>
+
+                                        {/* <FileStorageUploadComponent /> */}
+                                        {/* GOOGLE IMAGE */}
+
+                                        {/* <div style={{ textAlign: 'center' }} hidden={this.state.googleImage ? false : true}><img src={this.state.googleImage} className="rounded-circle ui-w-50"></img>
+                                            <button
+                                                className="btn btn-outline-danger btn-sm"
+                                                onClick={this.useGoogleImage}
+                                                disabled={this.state.googleImageLoading ? true : false}
+                                            >{!this.state.googleImageLoading ? 'Use Google Image' : <Spinner name="cube-grid" fadeIn='none' className="mx-auto" />
+                                                }
+                                            </button>
+                                        </div> */}
+                                        {/* <Spinner name="cube-grid" className="mx-auto" /> */}
+
+                                        {/* Avatar Edit */}
+                                        <div className="" style={{ textAlign: 'center' }}>
+                                            {/* <AvatarEditor
+                                                mainDropDivClassProps="card-body "
+                                                avatarEditorLabel=""
+                                                // mainDivStyleProps={{ textAlign: 'center' }}
+                                                mimeTypes="image/jpg, image/jpeg, image/png, image/gif"
+                                                label="Click to Add a file"
+                                                avatarEditorWidth='100%'
+                                                imageWidth='275'
+                                                btnClassProps='btn btn-outline-danger'
+                                                btnTextProps='Submit'
+                                                selectCurrentProfileImage={this.props.selectCurrentProfileImage}
+                                                profileImageToggle={this.profileImageToggle}
+                                                loadingAnimation={this.loadingAnimation}
+                                            /> */}
+                                        </div>
+
+                                    </ModalBody>
+                                </Modal>
+                                {/* END OF PROFILE IMAGE MODAL */}
                                 <div className="media-body ml-5 text-left">
                                     <h4 className="font-weight-bold mb-4">
                                       {this.state.firstName} {this.state.lastName}  
@@ -199,69 +317,31 @@ class profile extends React.Component {
                                 <div className="card mb-4">
                                 <div className="card-header with-elements">
                                   <span className="card-header-title">Photos</span>
-                                  <div className="card-header-elements ml-2">
+                                  <div className="card-header-elements ml-2 ">
                                     <small className="text-muted">54</small>
                                   </div>
-                                  <div className="card-header-elements ml-md-auto">
+                                  <button type="button" onClick={this.editClicked} className="btn btn-link small" data-toggle="modal" data-target="#modals-profile">+</button>
+                                  {/* <div className="card-header-elements ml-md-auto col">
                                     <a href="javascript:void(0)" className="btn btn-default md-btn-flat btn-xs">Show More</a>
-                                  </div>
+                                  </div> */}
                                </div>
                                      <div className="row no-gutters align-items-start pt-1 pl-1">
-                                      <a href="javascript:void(0)" className="d-block col-3 col-sm-2 col-lg-3 pr-1 pb-1">
-                                        <span class="d-block ui-square ui-bg-cover" style={{backgroundImage: "url('assets/img/bg/Pool.jpg')"}}></span>
-                                      </a>
-                                      <a href="javascript:void(0)" className="d-block col-3 col-sm-2 col-lg-3 pr-1 pb-1">
-                                        <span class="d-block ui-square ui-bg-cover" style={{backgroundImage: "url('assets/img/bg/Pool.jpg')"}}></span>
-                                      </a>
-                                      <a href="javascript:void(0)" className="d-block col-3 col-sm-2 col-lg-3 pr-1 pb-1">
-                                        <span class="d-block ui-square ui-bg-cover" style={{backgroundImage: "url('assets/img/bg/Pool.jpg')"}}></span>
-                                      </a>
-                                      <a href="javascript:void(0)" className="d-block col-3 col-sm-2 col-lg-3 pr-1 pb-1">
-                                        <span class="d-block ui-square ui-bg-cover" style={{backgroundImage: "url('assets/img/bg/Pool.jpg')"}}></span>
-                                      </a>
-                                      <a href="javascript:void(0)" className="d-block col-3 col-sm-2 col-lg-3 pr-1 pb-1">
-                                        <span class="d-block ui-square ui-bg-cover" style={{backgroundImage: "url('assets/img/bg/Pool.jpg')"}}></span>
-                                      </a>
-                                      <a href="javascript:void(0)" className="d-block col-3 col-sm-2 col-lg-3 pr-1 pb-1">
-                                        <span class="d-block ui-square ui-bg-cover" style={{backgroundImage: "url('assets/img/bg/Pool.jpg')"}}></span>
-                                      </a>
-                                      <a href="javascript:void(0)" className="d-block col-3 col-sm-2 col-lg-3 pr-1 pb-1">
-                                        <span class="d-block ui-square ui-bg-cover" style={{backgroundImage: "url('assets/img/bg/Pool.jpg')"}}></span>
-                                      </a>
-                                      <a href="javascript:void(0)" className="d-block col-3 col-sm-2 col-lg-3 pr-1 pb-1">
-                                        <span class="d-block ui-square ui-bg-cover" style={{backgroundImage: "url('assets/img/bg/Pool.jpg')"}}></span>
-                                      </a>
-                                      <a href="javascript:void(0)" className="d-block col-3 col-sm-2 col-lg-3 pr-1 pb-1">
-                                        <span class="d-block ui-square ui-bg-cover" style={{backgroundImage: "url('assets/img/bg/Pool.jpg')"}}></span>
-                                      </a>
-                                      <a href="javascript:void(0)" className="d-block col-3 col-sm-2 col-lg-3 pr-1 pb-1">
-                                        <span class="d-block ui-square ui-bg-cover" style={{backgroundImage: "url('assets/img/bg/Pool.jpg')"}}></span>
-                                      </a>
-                                      <a href="javascript:void(0)" className="d-block col-3 col-sm-2 col-lg-3 pr-1 pb-1">
-                                        <span class="d-block ui-square ui-bg-cover" style={{backgroundImage: "url('assets/img/bg/Pool.jpg')"}}></span>
-                                      </a>
-                                      <a href="javascript:void(0)" className="d-block col-3 col-sm-2 col-lg-3 pr-1 pb-1">
-                                        <span class="d-block ui-square ui-bg-cover" style={{backgroundImage: "url('assets/img/bg/Pool.jpg')"}}></span>
-                                      </a>
-                                      <a href="javascript:void(0)" className="d-block col-3 col-sm-2 col-lg-3 pr-1 pb-1">
-                                        <span class="d-block ui-square ui-bg-cover" style={{backgroundImage: "url('assets/img/bg/Pool.jpg')"}}></span>
-                                      </a>
-                                      <a href="javascript:void(0)" className="d-block col-3 col-sm-2 col-lg-3 pr-1 pb-1">
-                                        <span class="d-block ui-square ui-bg-cover" style={{backgroundImage: "url('assets/img/bg/Pool.jpg')"}}></span>
-                                      </a>
-                                      <a href="javascript:void(0)" className="d-block col-3 col-sm-2 col-lg-3 pr-1 pb-1">
-                                        <span class="d-block ui-square ui-bg-cover" style={{backgroundImage: "url('assets/img/bg/Pool.jpg')"}}></span>
-                                      </a>
-                                      <a href="javascript:void(0)" className="d-block col-3 col-sm-2 col-lg-3 pr-1 pb-1">
-                                        <span class="d-block ui-square ui-bg-cover" style={{backgroundImage: "url('assets/img/bg/Pool.jpg')"}}></span>
-                                      </a>
+                                        {this.state.pictureData.map((par) => {
+                                          return <PicturesComponent 
+                                            key={par.id}
+                                            id={par.id}
+                                            ImageUrl={par.ImageUrl}
+
+                                          />
+                                        })}
+                                       
                                     </div>
                                 </div>
                                 </div>
                             </div> 
 
-                         {/* MODAL */}
-                         <div className="modal fade " id="modals-profile">
+                        {/* MODAL */}
+                        <div className="modal fade " id="modals-profile">
                                 <div className="modal-dialog">
                                   <form className="modal-content">
                                     <div claclassNamess="modal-header">
@@ -412,8 +492,12 @@ class profile extends React.Component {
                                   </form>
                                 </div>
                             </div>
-                          {/* MODAL */}
+                        {/* MODAL */}
 
+                        {/* PHOTO MODAL */}
+                        <m
+                        {/* PHOTO MODAL */}
+                                        
 
                     </div>
                 </div>
