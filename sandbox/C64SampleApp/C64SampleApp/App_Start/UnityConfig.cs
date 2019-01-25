@@ -6,6 +6,7 @@ using C64SampleApp.Services.Careers;
 using C64SampleApp.Services.FileStorage;
 using C64SampleApp.Services.Person;
 using C64SampleApp.Services.ProfileImageService;
+using C64SampleApp.Services.WebScrape;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Configuration;
@@ -37,6 +38,7 @@ namespace C64SampleApp
             container.RegisterType<ICareersService, CareersService>();
             container.RegisterType<IFileStorageService, FileStorageService>();
             container.RegisterType<IProfileImageService, ProfileImageService>();
+            container.RegisterType<IWebScrapeService, WebScrapeService>();
 
             GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
             //System.Web.Http.GlobalConfiguration.Configuration.DependencyResolver = new Unity.WebApi.UnityDependencyResolver(container);

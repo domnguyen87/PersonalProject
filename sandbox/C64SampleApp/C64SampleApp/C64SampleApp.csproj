@@ -54,6 +54,9 @@
     <Reference Include="CommonServiceLocator, Version=2.0.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
       <HintPath>..\packages\Unity.5.2.0\lib\net45\CommonServiceLocator.dll</HintPath>
     </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.8.14.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.8.14\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -251,10 +254,12 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PersonController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Controllers\WebScrapeController.cs" />
     <Compile Include="Domain\CareersDomain.cs" />
     <Compile Include="Domain\FileStorageDomain.cs" />
     <Compile Include="Domain\PersonDomain.cs" />
     <Compile Include="Domain\ProfileImageDomain.cs" />
+    <Compile Include="Domain\WebScrapeDomain.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -269,6 +274,9 @@
     <Compile Include="Requests\FileStorageUpdateRequest.cs" />
     <Compile Include="Requests\ProfileImageAddRequest.cs" />
     <Compile Include="Requests\ProfileImageUpdateRequest.cs" />
+    <Compile Include="Requests\WebScrapeAddRequest.cs" />
+    <Compile Include="Requests\WebScrapeRequest.cs" />
+    <Compile Include="Requests\WebScrapeUpdateRequest.cs" />
     <Compile Include="Responses\BaseResponse.cs" />
     <Compile Include="Responses\ItemResponse.cs" />
     <Compile Include="Responses\ItemsResponse.cs" />
@@ -282,6 +290,8 @@
     <Compile Include="Services\Person\PersonService.cs" />
     <Compile Include="Services\ProfileImageService\IProfileImageService.cs" />
     <Compile Include="Services\ProfileImageService\ProfileImageService.cs" />
+    <Compile Include="Services\WebScrape\IWebScrapeService.cs" />
+    <Compile Include="Services\WebScrape\WebScrapeService.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\FileStorageViewModel.cs" />
   </ItemGroup>
