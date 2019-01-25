@@ -1,5 +1,6 @@
 import React from 'react'
 import ContactsComponent from './ContactsComponent'
+import WebScrapeService from '../../services/WebScrapeService'
 
 class Contacts extends React.Component {
     constructor(props) {
@@ -10,6 +11,9 @@ class Contacts extends React.Component {
             phone: '',
             twittter: '',
             instagram: '',
+            Title: '',
+            Description: '',
+            Image: '',
             data: []
  
 
@@ -22,7 +26,7 @@ class Contacts extends React.Component {
 
     WebScrapeSuccess = resp => {
         console.log(resp)
-        //this.setState({ data:resp.data.item })
+        this.setState({ data:resp.data.Items })
     }
 
     WebScrapeError = err => {
@@ -32,13 +36,13 @@ class Contacts extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <div className="layout-content">
+                <div className="container-fluid flex-grow-1 container-p-y">
                     <h3 className="font-weight-bold py-3 mb-4">
                         Personal Trainers
                     </h3>
 
-                    <div class="row contacts-col-view">
-                    {/* {this.state.data.map((par) => {
+                    <div className="row contacts-col-view">
+                    {this.state.data.map((par) => {
                         return <ContactsComponent
                             key = {par.id}
                             id = {par.id}
@@ -51,9 +55,10 @@ class Contacts extends React.Component {
                             facebook = {par.facebook}
                             instagram = {par.instagram}
                         />
-                    })} */}
+                    })}
+                     {/* <ContactsComponent /> */}
                     </div>
-                </div>
+                    </div>
             </React.Fragment>
 
         )
