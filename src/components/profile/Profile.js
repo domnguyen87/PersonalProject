@@ -108,7 +108,7 @@ class profile extends React.Component {
       this.setState({
           [key]: val
       })
-  }
+    }
 
   editClicked = id => {
     ProfileService.getByIdProfile(4, this.profileSuccess, this.profileError)

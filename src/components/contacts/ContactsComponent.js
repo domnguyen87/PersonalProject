@@ -12,7 +12,7 @@ const ContactsComponent = props => {
                             <h4 className="contact-content-name mb-1">
                                 {props.Title}
                             </h4>
-                            <h6>{props.Description}</h6>
+                            <div style={{ fontSize: "12px" }}>{props.Description}</div>
                         </div>
                         <div className='small'>
                             {props.phone}

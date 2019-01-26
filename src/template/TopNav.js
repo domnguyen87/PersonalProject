@@ -31,6 +31,8 @@ class TopNav extends React.Component {
                         <div className="nav-item d-none d-lg-block text-big font-weight-light line-height-1 opacity-25 mr-3 ml-1">|</div>
                         <TopLink path='/careers' name="Careers" />
                         <div className="nav-item d-none d-lg-block text-big font-weight-light line-height-1 opacity-25 mr-3 ml-1">|</div>
+                        <TopLink path="/locations" name="Locations"  />
+                        <div className="nav-item d-none d-lg-block text-big font-weight-light line-height-1 opacity-25 mr-3 ml-1">|</div>
                         <TopLink path="/register" name="Register"  />
                         <div className="nav-item d-none d-lg-block text-big font-weight-light line-height-1 opacity-25 mr-3 ml-1">|</div>
                         <TopLink path="/login" name="LogIn"  />
