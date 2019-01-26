@@ -3,15 +3,16 @@ import React from 'react'
 const ContactsComponent = props => {
     
     return(
-        <div key={props.id} id={props.id}>
-            <div className="contacts-col col-12">
+            <div className="contacts-col col-4" key={props.id} id={props.id}>
                 <div className="card mb-4">
                     <div className="card-body">
-                        <img src={props.picture} className="contact-content-img rounded-circle" alt="" />
+                        <div className="contact-content">
+                        <img src={props.Image} className="contact-content-img rounded-circle"  alt="" style={{ width:"15%", height: "auto" }} />
                         <div className="contact-content-about">
                             <h4 className="contact-content-name mb-1">
-                                {props.name}
+                                {props.Title}
                             </h4>
+                            <div style={{ fontSize: "12px" }}>{props.Description}</div>
                         </div>
                         <div className='small'>
                             {props.phone}
@@ -32,10 +33,10 @@ const ContactsComponent = props => {
                             <span className="ion ion-logo-instagram"></span>
                           </a>
                         </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
     )
 }
 

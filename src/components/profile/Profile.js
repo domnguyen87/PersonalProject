@@ -1,10 +1,11 @@
 import React from 'react'
 import ProfileService from '../../services/ProfileService'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-//import AvatarEditor from '../AvatarEditor'
+import AvatarEditor from '../AvatarEditor'
 import Spinner from 'react-spinkit'
 import PicturesComponent from './PicturesComponent';
 import FileStorageService from '../../services/FileStorageService'
+import UploadInput from './UploadInput'
 
 
 
@@ -107,7 +108,7 @@ class profile extends React.Component {
       this.setState({
           [key]: val
       })
-  }
+    }
 
   editClicked = id => {
     ProfileService.getByIdProfile(4, this.profileSuccess, this.profileError)
@@ -154,6 +155,7 @@ class profile extends React.Component {
       // ProfileImageService.selectByProfileId(this.props.match.params.profileId, this.onSelectProfileImageSuccess, this.onSelectProfileImageError);
   }
 
+    
 
 
 
@@ -178,76 +180,7 @@ class profile extends React.Component {
                                 </label> */}
                                 <img src="/assets/img/avatars/rock.png" width="25%" alt="" className="ui-w-55 rounded-circle" />
                                 {/* <img src={this.props.userImage} width="100%" className="rounded-circle" /> */}
-                                {/* PROFILE IMAGE MODAL */}
-                                <Modal isOpen={this.state.profileImageModal} toggle={this.profileImageToggle} className="">
-                                    <div style={{
-                                        position: 'fixed',
-                                        top: '0',
-                                        // left: '0px',
-                                        width: '100%',
-                                        height: '100%',
-                                        background: 'black',
-                                        opacity: '.7',
-                                        zIndex: 99
-
-                                    }}
-                                        hidden={!this.state.loading ? true : false}
-                                    >
-                                    </div>
-                                    <div style={{
-                                        textAlign: 'center',
-                                        position: 'fixed',
-                                        marginTop: '50%',
-                                        marginBottom: 'auto',
-                                        marginLeft: 'auto',
-                                        marginRight: 'auto',
-                                        display: 'flex',
-                                        alignSelf: 'center',
-                                        transform: 'scale(5)',
-                                        zIndex: 100,
-                                    }}
-                                        hidden={!this.state.loading ? true : false}
-                                    >
-                                        <Spinner name="folding-cube" fadeIn='none' color="#26B4FF" />
-                                    </div>
-                                    <ModalHeader toggle={this.profileImageToggle}>Profile Image</ModalHeader>
-                                    <ModalBody>
-
-                                        {/* <FileStorageUploadComponent /> */}
-                                        {/* GOOGLE IMAGE */}
-
-                                        {/* <div style={{ textAlign: 'center' }} hidden={this.state.googleImage ? false : true}><img src={this.state.googleImage} className="rounded-circle ui-w-50"></img>
-                                            <button
-                                                className="btn btn-outline-danger btn-sm"
-                                                onClick={this.useGoogleImage}
-                                                disabled={this.state.googleImageLoading ? true : false}
-                                            >{!this.state.googleImageLoading ? 'Use Google Image' : <Spinner name="cube-grid" fadeIn='none' className="mx-auto" />
-                                                }
-                                            </button>
-                                        </div> */}
-                                        {/* <Spinner name="cube-grid" className="mx-auto" /> */}
-
-                                        {/* Avatar Edit */}
-                                        <div className="" style={{ textAlign: 'center' }}>
-                                            {/* <AvatarEditor
-                                                mainDropDivClassProps="card-body "
-                                                avatarEditorLabel=""
-                                                // mainDivStyleProps={{ textAlign: 'center' }}
-                                                mimeTypes="image/jpg, image/jpeg, image/png, image/gif"
-                                                label="Click to Add a file"
-                                                avatarEditorWidth='100%'
-                                                imageWidth='275'
-                                                btnClassProps='btn btn-outline-danger'
-                                                btnTextProps='Submit'
-                                                selectCurrentProfileImage={this.props.selectCurrentProfileImage}
-                                                profileImageToggle={this.profileImageToggle}
-                                                loadingAnimation={this.loadingAnimation}
-                                            /> */}
-                                        </div>
-
-                                    </ModalBody>
-                                </Modal>
-                                {/* END OF PROFILE IMAGE MODAL */}
+                                
                                 <div className="media-body ml-5 text-left">
                                     <h4 className="font-weight-bold mb-4">
                                       {this.state.firstName} {this.state.lastName}  
@@ -320,7 +253,7 @@ class profile extends React.Component {
                                   <div className="card-header-elements ml-2 ">
                                     <small className="text-muted">54</small>
                                   </div>
-                                  <button type="button" onClick={this.editClicked} className="btn btn-link small" data-toggle="modal" data-target="#modals-profile">+</button>
+                                  <button type="button" onClick={this.profileImageToggle} className="btn btn-link small">+</button>
                                   {/* <div className="card-header-elements ml-md-auto col">
                                     <a href="javascript:void(0)" className="btn btn-default md-btn-flat btn-xs">Show More</a>
                                   </div> */}
@@ -494,9 +427,85 @@ class profile extends React.Component {
                             </div>
                         {/* MODAL */}
 
-                        {/* PHOTO MODAL */}
-                        <m
-                        {/* PHOTO MODAL */}
+                        {/* PROFILE IMAGE MODAL */}
+                        <Modal isOpen={this.state.profileImageModal} toggle={this.profileImageToggle} className="">
+                                    <div style={{
+                                        position: 'fixed',
+                                        top: '0',
+                                        // left: '0px',
+                                        width: '100%',
+                                        height: '100%',
+                                        background: 'black',
+                                        opacity: '.7',
+                                        zIndex: 99
+                                    }}
+                                        hidden={!this.state.loading ? true : false}
+                                    >
+                                    </div>
+                                    <div style={{
+                                        textAlign: 'center',
+                                        position: 'fixed',
+                                        marginTop: '50%',
+                                        marginBottom: 'auto',
+                                        marginLeft: 'auto',
+                                        marginRight: 'auto',
+                                        display: 'flex',
+                                        alignSelf: 'center',
+                                        transform: 'scale(5)',
+                                        zIndex: 100,
+                                    }}
+                                        hidden={!this.state.loading ? true : false}
+                                    >
+                                        {/* <Spinner name="folding-cube" fadeIn='none' color="#26B4FF" /> */}
+                                    </div>
+                                    <ModalHeader toggle={this.profileImageToggle}>Photos of Me</ModalHeader>
+                                    <ModalBody>
+
+                                        {/* <FileStorageUploadComponent /> */}
+                                        {/* GOOGLE IMAGE */}
+
+                                        {/* <div style={{ textAlign: 'center' }} hidden={this.state.googleImage ? false : true}><img src={this.state.googleImage} className="rounded-circle ui-w-50"></img>
+                                            <button
+                                                className="btn btn-outline-danger btn-sm"
+                                                onClick={this.useGoogleImage}
+                                                disabled={this.state.googleImageLoading ? true : false}
+                                            >{!this.state.googleImageLoading ? 'Use Google Image' : <Spinner name="cube-grid" fadeIn='none' className="mx-auto" />
+                                                }
+                                            </button>
+                                        </div> */}
+                                        {/* <Spinner name="cube-grid" className="mx-auto" /> */}
+
+                                        {/* Avatar Edit */}
+                                        {/* <div className="" style={{ textAlign: 'center' }}>
+                                            <AvatarEditor
+                                                mainDropDivClassProps="card-body "
+                                                avatarEditorLabel=""
+                                                // mainDivStyleProps={{ textAlign: 'center' }}
+                                                mimeTypes="image/jpg, image/jpeg, image/png, image/gif"
+                                                label="Click to Add a file"
+                                                avatarEditorWidth='100%'
+                                                imageWidth='275'
+                                                btnClassProps='btn btn-outline-danger'
+                                                btnTextProps='Submit'
+                                                selectCurrentProfileImage={this.props.selectCurrentProfileImage}
+                                                profileImageToggle={this.profileImageToggle}
+                                                loadingAnimation={this.loadingAnimation}
+                                            />
+                                        </div> */}
+
+                                      <div className="col-md-6 mx-auto" style={{ textAlign: 'center' }}>
+                                          <UploadInput
+                                              fileStorageUploadLabel="File Input Control with Inline Button"
+                                              divClassProps="card bg-dark text-white mt-0"
+                                              inputClassProps=""
+                                              btnClassProps="btn btn-outline-success"
+                                              uploadBtnText="Submit"
+                                          />
+                                      </div>
+
+                                    </ModalBody>
+                                </Modal>
+                                {/* END OF PROFILE IMAGE MODAL */}
                                         
 
                     </div>
