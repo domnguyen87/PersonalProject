@@ -1,9 +1,10 @@
 import React from 'react'
 import FormErrors from './common/FormErrors'
-import UserService from '../services/UserAccountService'
+import UserAccountService from '../services/UserAccountService'
 import { Redirect } from 'react-router-dom'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 import { withRouter } from 'react-router-dom';
+import qs from 'qs'
 
 
 
@@ -11,6 +12,8 @@ class Login extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
+          email:"",
+          password:""
             
         }
     }
@@ -19,13 +22,12 @@ class Login extends React.Component {
 
     
 
-    handleClick = evt => {
-        console.log('login clicked')
-        // const data = {
-        //     email: this.state.email,
-        //     password: this.state.password
-        // }
-        UserService.login(this.state, this.onLoginSuccess, this.onLoginError)
+    handleChange = evt => {
+      const key = evt.target.name
+      const val = evt.target.value
+      this.setState({
+        [key]: val
+      })
     }
 
     onLoginSuccess = (resp) => {
@@ -39,10 +41,23 @@ class Login extends React.Component {
         alert('Email and/or Password was incorrect')
     }
 
+    loginClicked = evt => {
+      evt.preventDefault();
+        var qs = require('qs')
+        const data = qs.stringify({
+          username: this.state.email,
+          password: this.state.password,
+          grant_type: 'password'
+        })
+        console.log(data)
+        UserAccountService.login(data, this.onLoginSuccess, this.onLoginError)
+    }
+
     signUpClicked = evt => {
-        //evt.preventDefault();
+        evt.preventDefault();
         this.props.history.push('/register')
         //<Redirect to='/register' />
+        
     }
 
     render() {
@@ -109,21 +124,33 @@ class Login extends React.Component {
                           <form className="my-3">
                             <div className="form-group">
                               <label className="form-label d-flex justify-content-between align-items-end">Email</label>
-                              <input type="text" className="form-control" />
+                              <input 
+                                type="text"
+                                name="email" 
+                                className="form-control"
+                                value={this.state.email}
+                                onChange={this.handleChange}
+                                />
                             </div>
                             <div className="form-group">
                               <label className="form-label d-flex justify-content-between align-items-end">
                                 <div>Password</div>
                                 <a href="javascript:void(0)" className="d-block small">Forgot password?</a>
                               </label>
-                              <input type="password" className="form-control"/>
+                              <input 
+                                type="password"
+                                name="password" 
+                                className="form-control"
+                                value={this.state.password}
+                                onChange={this.handleChange}
+                                />
                             </div>
                             <div className="d-flex justify-content-between align-items-center m-0">
                               <label className="custom-control custom-checkbox m-0">
                                 <input type="checkbox" className="custom-control-input"/>
                                 <span className="custom-control-label display-5">Remember me</span>
                               </label>
-                              <button type="button" className="btn btn-primary">Sign In</button>
+                              <button type="button" className="btn btn-primary" onClick={this.loginClicked}>Sign In</button>
                             </div>
                           </form>
                           {/* <!-- / Form --> */}
