@@ -73,7 +73,7 @@ class Careers extends React.Component {
     render() {
         return(
             <React.Fragment>
-                <div class="ui-rect ui-rect-30 ui-bg-cover" style={{backgroundImage: "url('assets/img/bg/Pool.jpg')"}}></div>
+                <div className="ui-rect ui-rect-30 ui-bg-cover" style={{backgroundImage: "url('assets/img/bg/Pool4.jpg')"}}></div>
                 {/* <div className="position-relative pt-5 pb-4">
                     <div className="portfolio-image" style={{backgroundImage: "url('assets/img/bg/Pool.jpg')"}}></div>
                     <div className="align-items-end py-5 px-4 px-md-5">

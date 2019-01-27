@@ -82,7 +82,7 @@ class Login extends React.Component {
 
                     {/* <!-- Side container --> */}
                     {/* <!-- Do not display the container on extra small, small and medium screens --> */}
-                    <div className="d-none d-lg-flex col-md-12 align-items-center ui-bg-cover ui-bg-overlay-container p-5" style={{backgroundImage: "url('assets/img/bg/Pool2.jpg')"}}>
+                    <div className="d-none d-lg-flex col-md-12 align-items-center ui-bg-cover ui-bg-overlay-container p-5" style={{backgroundImage: "url('assets/img/bg/contacts.jpg')"}}>
                       
 
                       {/* <!-- Text --> */}
