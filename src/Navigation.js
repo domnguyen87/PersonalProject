@@ -9,6 +9,7 @@ import Contacts from './components/contacts/Contacts'
 import WorkOutPlans from './components/workout plans/WorkOutPlans'
 import Careers from './components/careers/Careers'
 import Profile from './components/profile/Profile'
+import Locations from './components/locations/Location'
 
 class Navigation extends React.Component{
   constructor(props) {
