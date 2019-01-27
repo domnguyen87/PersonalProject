@@ -52,6 +52,9 @@ class Contacts extends React.Component {
     createWebScrapeSuccess = resp => {
         console.log(resp)
         WebScrapeService.selectAll(this.WebScrapeSuccess, this.WebScrapeError)
+        this.setState ({
+            url: ''
+        })
     }
 
     createWebScrapeError = err => {
@@ -71,7 +74,8 @@ class Contacts extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <div className="container-fluid flex-grow-1 container-p-y">
+                <div class="ui-rect ui-rect-30 ui-bg-cover" style={{backgroundImage: "url('assets/img/bg/9.jpg')"}}></div>
+                <div className="container-fluid flex-grow-1 container-p-y" >
                     <h3 className="font-weight-bold py-3 mb-4">
                         Personal Trainers
                         <button type="button" className="btn btn-link" data-toggle="modal" data-target="#modals-trainer">+</button>

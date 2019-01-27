@@ -168,7 +168,7 @@ class profile extends React.Component {
                     <div class="container-fluid flex-grow-1 container-p-y">
                     
                     {/* HEADER */}
-                        <div className="bg-white container-m--x container-m--y mb-4">
+                        <div className="bg-white container-m--x container-m--y mb-4" style={{backgroundImage: "url('assets/img/bg/black2.jpg')"}}>
                             <div className="media col-md-10 col-lg-8 col-xl-7 py-5 mx-auto">
                             {/* <label >Select An Image: {this.props.userImage === "/assets/img/avatars/defaultuser.jpg" || this.props.userImage === ''
                                     ?
@@ -178,25 +178,25 @@ class profile extends React.Component {
                                     <Button className="btn btn-outline-danger btn-sm" onClick={this.onClickDeleteProfileImage}
                                     >Delete Image</Button>}
                                 </label> */}
-                                <img src="/assets/img/avatars/rock.png" width="25%" alt="" className="ui-w-55 rounded-circle" />
+                                <img src="/assets/img/avatars/rock.png" width="40%" alt="" className="ui-w-55 rounded-circle" />
                                 {/* <img src={this.props.userImage} width="100%" className="rounded-circle" /> */}
                                 
-                                <div className="media-body ml-5 text-left">
+                                <div className="media-body ml-5 text-left text-white">
                                     <h4 className="font-weight-bold mb-4">
                                       {this.state.firstName} {this.state.lastName}  
                                       <button type="button" onClick={this.editClicked} className="btn btn-link small" data-toggle="modal" data-target="#modals-profile">+</button>
                                     </h4>
-                                    <div className="text-muted mb-4 small">
+                                    <div className="text-white mb-4 small">
                                     {this.state.headLine}
                                     </div>
-                                    <div className="row justify-content-sm-between mb-4" style={{fontSize:"18px"}}>
-                                      <a href="javascript:void(0)" class="d-block text-dark mb-2">
+                                    <div className="justify-content-around mb-4" style={{fontSize:"18px"}}>
+                                      <a href="javascript:void(0)" class="d-block text-white mb-2">
                                         <i class="ion ion-logo-twitter ui-w-30 text-center text-twitter"></i> {this.state.twitter}
                                       </a>
-                                      <a href="javascript:void(0)" class="d-block text-dark mb-2">
+                                      <a href="javascript:void(0)" class="d-block text-white mb-2">
                                         <i class="ion ion-logo-facebook ui-w-30 text-center text-facebook"></i> {this.state.facebook}
                                       </a>
-                                      <a href="javascript:void(0)" class="d-block text-dark mb-0">
+                                      <a href="javascript:void(0)" class="d-block text-white mb-0">
                                         <i class="ion ion-logo-instagram ui-w-30 text-center text-instagram"></i>{this.state.instagram}
                                       </a>
                                     </div>
@@ -206,6 +206,7 @@ class profile extends React.Component {
                                 </div>
                             </div>
                             <hr class="m-0" />
+                            </div>
                     {/* END HEADER */}
 
                     {/* BODY */}
@@ -239,8 +240,10 @@ class profile extends React.Component {
                         {/* MIDDLE  */}
                             <div className="col-md-6">
                                 <div className="card mb-4">
+                                <div className="card-header">
+                                    <div className="text-muted">Activity Log</div>
+                                </div>
                                 <div className="card-body">
-                                    <div className="text-muted">Name:Dom</div>
                                 </div>
                                 </div>
                             </div>
@@ -258,17 +261,15 @@ class profile extends React.Component {
                                     <a href="javascript:void(0)" className="btn btn-default md-btn-flat btn-xs">Show More</a>
                                   </div> */}
                                </div>
-                                     <div className="row no-gutters align-items-start pt-1 pl-1">
-                                        {this.state.pictureData.map((par) => {
-                                          return <PicturesComponent 
-                                            key={par.id}
-                                            id={par.id}
-                                            ImageUrl={par.ImageUrl}
-
-                                          />
+                                  <div className="row no-gutters align-items-start pt-1 pl-1">
+                                      {this.state.pictureData.map((par) => {
+                                        return <PicturesComponent 
+                                          key={par.id}
+                                          id={par.id}
+                                          ImageUrl={par.ImageUrl}
+                                        />
                                         })}
-                                       
-                                    </div>
+                                  </div>
                                 </div>
                                 </div>
                             </div> 
@@ -511,7 +512,7 @@ class profile extends React.Component {
                     </div>
                 </div>
                 </div>
-                </div>
+                
             </React.Fragment>
 
 

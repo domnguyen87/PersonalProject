@@ -3,9 +3,10 @@ import React from 'react'
 const CareersComponent = props => {
 
     return (
-        <div key={props.id} id={props.id} className="p-1" style={{ fontfamily: "Thasadith", fontSize: "medium",}}>
+        <div key={props.Id} id={props.Id} className="p-1" style={{ fontfamily: "Thasadith", fontSize: "medium",}}>
             <div className="text-dark font-weight-bold d-flex flex-wrap mt-3" style={{ fontSize: "150%" }}>
                 {props.Title}
+                <button type="button" className="btn btn-link" onClick={() => props.onDelete(props.Id)}>-</button> 
             </div>
             <div className="d-flex flex-wrap mt-3">
                 <div className="mr-3">

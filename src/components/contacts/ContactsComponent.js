@@ -7,7 +7,7 @@ const ContactsComponent = props => {
                 <div className="card mb-4">
                     <div className="card-body">
                         <div className="contact-content">
-                        <img src={props.Image} className="contact-content-img rounded-circle"  alt="" style={{ width:"15%", height: "auto" }} />
+                        <img src={props.Image} className="contact-content-img rounded-circle"  alt="" style={{ width:"50%", height: "auto" }} />
                         <div className="contact-content-about">
                             <h4 className="contact-content-name mb-1">
                                 {props.Title}

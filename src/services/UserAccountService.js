@@ -8,7 +8,8 @@ class UserAccountService {
     }
 
     static login(data, onSuccess, onError) {
-        axios.post('/api/account/ExternalLogin', data, { withCredentials: true })
+        //axios.post('/token', data, { withCredentials: true })
+        axios.post('token', data)
             .then(onSuccess)
             .catch(onError)
     }
