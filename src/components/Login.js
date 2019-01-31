@@ -5,6 +5,7 @@ import { Redirect } from 'react-router-dom'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 import { withRouter } from 'react-router-dom';
 import qs from 'qs'
+import SweetAlert from 'react-bootstrap-sweetalert'
 
 
 
@@ -13,14 +14,12 @@ class Login extends React.Component {
         super(props)
         this.state = {
           email:"",
-          password:""
+          password:"",
+          sweetAlertAddShow: false,
             
         }
     }
 
-    
-
-    
 
     handleChange = evt => {
       const key = evt.target.name
@@ -32,13 +31,16 @@ class Login extends React.Component {
 
     onLoginSuccess = (resp) => {
         console.log(resp);
-        this.props.history.push('/workoutplans')
+        this.props.history.push('/profile')
         // this.setState({ loginSuccess: true })
     }
 
     onLoginError = err => {
         console.log(err);
-        alert('Email and/or Password was incorrect')
+        //alert('Email and/or Password was incorrect')
+        this.setState({
+          sweetAlertAddShow:true
+        })
     }
 
     loginClicked = evt => {
@@ -59,6 +61,12 @@ class Login extends React.Component {
         //<Redirect to='/register' />
         
     }
+
+    sweetAlertHide = () => {
+      this.setState({
+          sweetAlertAddShow: false,
+      });
+  }
 
     render() {
 
@@ -174,6 +182,10 @@ class Login extends React.Component {
                 </div>
 
                 {/* <!-- / Content --> */}
+
+                < SweetAlert warning title="Wrong Password" show={this.state.sweetAlertAddShow} onConfirm={this.sweetAlertHide} >
+                    
+                    </SweetAlert >
 
             </React.Fragment>
         )
