@@ -47,8 +47,30 @@ class Careers extends React.Component {
             Description: this.state.Description
         }
         console.log(data)
-        CareerService.createCareer(data, this.createCareerSuccess, this.createCareerError)
+        // if(this.state.Id) {
+        //     CareerService.updateCareer(this.state.Id,this.putCareerSuccess, this.putCareerError, data)
+        // } else {
+            CareerService.createCareer(data, this.createCareerSuccess, this.createCareerError)
+        // }
     }
+
+    // putCareerSuccess = resp => {
+    //     console.log(resp)
+    //     CareerService.getAllCareer(this.onGetSuccess, this.onGetError)
+    //     this.setState ({
+    //         Id: '',
+    //         Title: '',
+    //         Department: '',
+    //         Time: '',
+    //         Description: ''
+    //     })
+    // }
+
+    // putCareerError = err => {
+    //     console.log(err)
+    // }
+
+
 
     createCareerSuccess = resp => {
         CareerService.getAllCareer(this.onGetSuccess, this.onGetError)
@@ -68,6 +90,20 @@ class Careers extends React.Component {
         console.log(err)
     }
 
+    // modalClicked = Id => {
+    //     CareerService.getByIdCareer(Id, this.getByIdSuccess, this.getByIdError)
+    // }
+
+    // getByIdSuccess = resp => {
+    //     console.log(resp)
+    //     this.setState ({ 
+    //         Id: resp.data.Item.Id,
+    //         Title:resp.data.Item.Title,
+    //         Department: resp.data.Item.Department,
+    //         Time: resp.data.Item.Time,
+    //         Description:resp.data.Item.Description
+    //     })
+    // }
     
 
     render() {
@@ -177,6 +213,7 @@ class Careers extends React.Component {
                                     Time={par.Time}
                                     Description={par.Description}
                                     onDelete={this.deleteClicked}
+                                    onModal={this.modalClicked}
                                     />
                                 })}
                                 <hr className="border-light m-0"></hr>

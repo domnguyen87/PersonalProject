@@ -183,9 +183,12 @@ class Login extends React.Component {
 
                 {/* <!-- / Content --> */}
 
-                < SweetAlert warning title="Wrong Password" show={this.state.sweetAlertAddShow} onConfirm={this.sweetAlertHide} >
-                    
-                    </SweetAlert >
+                < SweetAlert
+                  warning 
+                  title="Wrong Password" 
+                  show={this.state.sweetAlertAddShow} 
+                  onConfirm={this.sweetAlertHide}>
+                </SweetAlert >
 
             </React.Fragment>
         )
