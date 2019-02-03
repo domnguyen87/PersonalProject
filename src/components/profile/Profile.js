@@ -428,8 +428,8 @@ class profile extends React.Component {
                             </div>
                         {/* MODAL */}
 
-                        {/* PROFILE IMAGE MODAL */}
-                        <Modal isOpen={this.state.profileImageModal} toggle={this.profileImageToggle} className="">
+                        {/*  IMAGE MODAL */}
+                        <Modal isOpen={this.state.profileImageModal} toggle={this.profileImageToggle}  className="">
                                     <div style={{
                                         position: 'fixed',
                                         top: '0',
@@ -496,10 +496,10 @@ class profile extends React.Component {
 
                                       <div className="col-md-6 mx-auto" style={{ textAlign: 'center' }}>
                                           <UploadInput
-                                              fileStorageUploadLabel="File Input Control with Inline Button"
-                                              divClassProps="card bg-dark text-white mt-0"
+                                              fileStorageUploadLabel="Add new Photo"
+                                              divClassProps="mt-0"
                                               inputClassProps=""
-                                              btnClassProps="btn btn-outline-success"
+                                              btnClassProps="btn btn-success"
                                               uploadBtnText="Submit"
                                           />
                                       </div>

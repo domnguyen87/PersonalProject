@@ -15,7 +15,7 @@ class UploadInput extends React.Component {
                 <div className={this.props.divClassProps} style={{ textAlign: 'center' }}>
                     <div class="input-group">
                         <input type='file' className={this.props.inputClassProps} onChange={this.onFileInput} />
-                        <div class="input-group-append">
+                        <div class="">
                             <button type="button" className={this.props.btnClassProps} onClick={this.onUploadClick}>{this.props.uploadBtnText}</button>
                         </div>
                     </div>
@@ -64,7 +64,7 @@ class UploadInput extends React.Component {
     // ON UPLOAD SUCCESS
     UploadSuccess = resp => {
         console.log("Upload Successful", resp);
-        alert("Upload was successful");
+        //alert("Upload was successful");
         window.location.reload();
     }
 

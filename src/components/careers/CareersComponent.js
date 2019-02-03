@@ -7,6 +7,7 @@ const CareersComponent = props => {
             <div className="text-dark font-weight-bold d-flex flex-wrap mt-3" style={{ fontSize: "150%" }}>
                 {props.Title}
                 <button type="button" className="btn btn-link" onClick={() => props.onDelete(props.Id)}>-</button> 
+                {/* <button type="button" data-toggle="modal" data-target="#modals-default" className="btn btn-link" onClick={() => props.onModal(props.Id)}>-</button> */}
             </div>
             <div className="d-flex flex-wrap mt-3">
                 <div className="mr-3">

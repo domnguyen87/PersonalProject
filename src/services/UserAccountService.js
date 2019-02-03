@@ -9,7 +9,7 @@ class UserAccountService {
 
     static login(data, onSuccess, onError) {
         //axios.post('/token', data, { withCredentials: true })
-        axios.post('token', data)
+        axios.post('token', data, { withCredentials: true })
             .then(onSuccess)
             .catch(onError)
     }
