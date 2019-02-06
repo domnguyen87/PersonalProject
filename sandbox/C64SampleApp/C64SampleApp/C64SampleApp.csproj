@@ -537,6 +537,7 @@
     <Compile Include="Domain\PersonDomain.cs" />
     <Compile Include="Domain\ProfileImageDomain.cs" />
     <Compile Include="Domain\WebScrapeDomain.cs" />
+    <Compile Include="Extension\IDataReaderExt.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

@@ -1,4 +1,5 @@
 ﻿using C64SampleApp.Domain;
+using C64SampleApp.Extension;
 using C64SampleApp.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -38,18 +39,18 @@ namespace C64SampleApp.Services.AspNetUsers
                 {
                     AspNetUsersDomain model = new AspNetUsersDomain();
                     int index = 0;
-                    model.Id = reader.GetString(index++);
-                    model.Email = reader.GetString(index++);
-                    model.EmailConfirmed = reader.GetString(index++);
-                    model.PasswordHash = reader.GetString(index++);
-                    model.SecurityStamp = reader.GetString(index++);
-                    model.PhoneNumber = reader.GetString(index++);
-                    model.PhoneNumberConfirmed = reader.GetString(index++);
-                    model.TwoFactorEnabled = reader.GetString(index++);
-                    model.LockoutEndDateUtc = reader.GetDateTime(index++);
-                    model.LockoutEnabled = reader.GetString(index++);
-                    model.AccessFailedCount = reader.GetInt32(index++);
-                    model.UserName = reader.GetString(index++);
+                    model.Id = reader.GetSafeString(index++);
+                    model.Email = reader.GetSafeString(index++);
+                    model.EmailConfirmed = reader.GetBoolean(index++);
+                    model.PasswordHash = reader.GetSafeString(index++);
+                    model.SecurityStamp = reader.GetSafeString(index++);
+                    model.PhoneNumber = reader.GetSafeString(index++);
+                    model.PhoneNumberConfirmed = reader.GetBoolean(index++);
+                    model.TwoFactorEnabled = reader.GetBoolean(index++);
+                    model.LockoutEndDateUtc = reader.GetSafeDateTime(index++);
+                    model.LockoutEnabled = reader.GetBoolean(index++);
+                    model.AccessFailedCount = reader.GetSafeInt32(index++);
+                    model.UserName = reader.GetSafeString(index++);
 
                     result.Add(model);
                 }
@@ -59,7 +60,7 @@ namespace C64SampleApp.Services.AspNetUsers
 
         public List<AspNetUsersDomain> SelectAll()
         {
-            var result = new List<AspNetUsersDomain>();
+            List<AspNetUsersDomain> result = new List<AspNetUsersDomain>();
             _dataProvider.ExecuteCmd(
                 "AspNetUsers_SelectAll",
                 inputParamMapper: null,
@@ -68,18 +69,18 @@ namespace C64SampleApp.Services.AspNetUsers
 
                     AspNetUsersDomain model = new AspNetUsersDomain();
                     int index = 0;
-                    model.Id = reader.GetString(index++);
-                    model.Email = reader.GetString(index++);
-                    model.EmailConfirmed = reader.GetString(index++);
-                    model.PasswordHash = reader.GetString(index++);
-                    model.SecurityStamp = reader.GetString(index++);
-                    model.PhoneNumber = reader.GetString(index++);
-                    model.PhoneNumberConfirmed = reader.GetString(index++);
-                    model.TwoFactorEnabled = reader.GetString(index++);
-                    model.LockoutEndDateUtc = reader.GetDateTime(index++);
-                    model.LockoutEnabled = reader.GetString(index++);
-                    model.AccessFailedCount = reader.GetInt32(index++);
-                    model.UserName = reader.GetString(index++);
+                    model.Id = reader.GetSafeString(index++);
+                    model.Email = reader.GetSafeString(index++);
+                    model.EmailConfirmed = reader.GetBoolean(index++);
+                    model.PasswordHash = reader.GetSafeString(index++);
+                    model.SecurityStamp = reader.GetSafeString(index++);
+                    model.PhoneNumber = reader.GetSafeString(index++);
+                    model.PhoneNumberConfirmed = reader.GetBoolean(index++);
+                    model.TwoFactorEnabled = reader.GetBoolean(index++);
+                    model.LockoutEndDateUtc = reader.GetSafeDateTime(index++);
+                    model.LockoutEnabled = reader.GetBoolean(index++);
+                    model.AccessFailedCount = reader.GetSafeInt32(index++);
+                    model.UserName = reader.GetSafeString(index++);
 
                     result.Add(model);
                 }
@@ -97,7 +98,7 @@ namespace C64SampleApp.Services.AspNetUsers
                     SqlParameter parm = new SqlParameter
                     {
                         ParameterName = "@Id",
-                        SqlDbType = SqlDbType.Text,
+                        SqlDbType = SqlDbType.Int,
                         Direction = ParameterDirection.Output
                     };
                     paramsList.AddWithValue("@PageNumber", PageNumber);
@@ -107,18 +108,18 @@ namespace C64SampleApp.Services.AspNetUsers
                 {
                     AspNetUsersDomain model = new AspNetUsersDomain();
                     int index = 0;
-                    model.Id = reader.GetString(index++);
-                    model.Email = reader.GetString(index++);
-                    model.EmailConfirmed = reader.GetString(index++);
-                    model.PasswordHash = reader.GetString(index++);
-                    model.SecurityStamp = reader.GetString(index++);
-                    model.PhoneNumber = reader.GetString(index++);
-                    model.PhoneNumberConfirmed = reader.GetString(index++);
-                    model.TwoFactorEnabled = reader.GetString(index++);
-                    model.LockoutEndDateUtc = reader.GetDateTime(index++);
-                    model.LockoutEnabled = reader.GetString(index++);
-                    model.AccessFailedCount = reader.GetInt32(index++);
-                    model.UserName = reader.GetString(index++);
+                    model.Id = reader.GetSafeString(index++);
+                    model.Email = reader.GetSafeString(index++);
+                    model.EmailConfirmed = reader.GetBoolean(index++);
+                    model.PasswordHash = reader.GetSafeString(index++);
+                    model.SecurityStamp = reader.GetSafeString(index++);
+                    model.PhoneNumber = reader.GetSafeString(index++);
+                    model.PhoneNumberConfirmed = reader.GetBoolean(index++);
+                    model.TwoFactorEnabled = reader.GetBoolean(index++);
+                    model.LockoutEndDateUtc = reader.GetSafeDateTime(index++);
+                    model.LockoutEnabled = reader.GetBoolean(index++);
+                    model.AccessFailedCount = reader.GetSafeInt32(index++);
+                    model.UserName = reader.GetSafeString(index++);
 
                     result.Add(model);
                 }

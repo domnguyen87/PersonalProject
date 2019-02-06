@@ -18,6 +18,7 @@ class Careers extends React.Component {
         CareerService.getAllCareer(this.onGetSuccess, this.onGetError)
     }
 
+
     onGetSuccess = resp => {
         console.log(resp.data.Item)
         this.setState ({ 
@@ -124,7 +125,7 @@ class Careers extends React.Component {
                 <div className="d-none d-lg-flex col-md-6 offset-md-3 align-items-center " >
                 <div className="layout-content">
                     <div className="container-fluid flex-grow-1 container-p-y">
-                        <div class="container px-0">
+                        <div className="container px-0">
                             <h2 className="text-center font-weight-bolder pt-4">
                                 Find a Career You'll Love
                                 <button type="button" className="btn btn-link" data-toggle="modal" data-target="#modals-default">+</button>
@@ -133,7 +134,7 @@ class Careers extends React.Component {
                             <div className="modal fade " id="modals-default">
                                 <div className="modal-dialog">
                                   <form className="modal-content">
-                                    <div claclassNamess="modal-header">
+                                    <div className="modal-header">
                                       <h5 className="modal-title pt-3">
                                         Add New 
                                         <span className="font-weight-light">Career</span>

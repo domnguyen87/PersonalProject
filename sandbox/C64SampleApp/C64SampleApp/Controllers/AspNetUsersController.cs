@@ -40,8 +40,8 @@ namespace C64SampleApp.Controllers
         {
             try
             {
-                var resp = new ItemsResponse<AspNetUsersDomain>();
-                resp.Items = _aspNetUsersService.SelectAll();
+                ItemResponse<List<AspNetUsersDomain>> resp = new ItemResponse<List<AspNetUsersDomain>>();
+                resp.Item = _aspNetUsersService.SelectAll();
                 return Request.CreateResponse(HttpStatusCode.OK, resp);
             }
             catch (Exception ex)
@@ -49,9 +49,9 @@ namespace C64SampleApp.Controllers
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
             }
         }
-        
+
         [HttpGet]
-        [Route("{PageNumber: int}/{PageSize: int}")]
+        [Route("{PageNumber:int}/{PageSize:int}")]
         public HttpResponseMessage SelectByPageNumber(int PageNumber, int PageSize)
         {
             try

@@ -1,8 +1,5 @@
 import React from "react"
 import { BrowserRouter as Router, Route, Switch, Link, Redirect } from 'react-router-dom'
-import Home from './components/Home'
-import About from './components/About'
-import Topics from './components/Topics'
 import Register from './components/Register'
 import Login from './components/Login'
 import Contacts from './components/contacts/Contacts'
@@ -10,6 +7,7 @@ import WorkOutPlans from './components/workout plans/WorkOutPlans'
 import Careers from './components/careers/Careers'
 import Profile from './components/profile/Profile'
 import Locations from './components/locations/Location'
+import Logs from './components/logs/Logs'
 
 class Navigation extends React.Component{
   constructor(props) {
@@ -31,7 +29,7 @@ class Navigation extends React.Component{
           <Route path="/careers" component={Careers} />
           <Route path="/profile" component={Profile} />
           <Route path="/locations" component={Locations} />
-          
+          <Route path="/logs" component={Logs} />
         </Switch>
       )
   }
