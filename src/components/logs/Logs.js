@@ -2,6 +2,7 @@ import React from 'react'
 import LogService from '../../services/LogService'
 import LogSearchForm from './LogSearchForm';
 import LogGetAllForm from './LogGetAllForm'
+import LogPagination from './LogPagination'
 
 class Logs extends React.Component {
     constructor(props) {
@@ -27,6 +28,24 @@ class Logs extends React.Component {
         })
     }
 
+    handlePageChange = evt => {
+        console.log(evt.target.value)
+        this.setState({
+            pageSize: evt.target.value
+        }, () => LogService.selectByPageNumber(this.state.pageNumber, this.state.pageSize, this.onPaginationSuccess, this.onPaginationError))
+    }
+
+    onPaginationSuccess = resp => {
+        console.log(resp)
+        this.setState({
+            pagedItems: resp.data.Items
+        })
+    }
+
+    onPaginationError = err => {
+        console.log(err)
+    }
+
     
 
 
@@ -48,16 +67,16 @@ class Logs extends React.Component {
                         <table className="datatables-demo table table-striped table-bordered">
                             <thead >
                                 <tr>
-                                    <th>Id <button className="fas fa-sort float-right" name="sortBy" value="Id" onclick={this.onChange}></button></th>
+                                    {/* <th>Id <button className="fas fa-sort float-right" name="sortBy" value="Id" onclick={this.onChange}></button></th> */}
                                     <th>Email <button className="fas fa-sort float-right" name="sortBy" value="Email" onclick={this.onChange}></button></th>
-                                    <th>EmailConfirmed <button className="fas fa-sort float-right" name="sortBy" value="EmailConfirmed" onclick={this.onChange}></button></th>
-                                    <th>PasswordHash <button className="fas fa-sort float-right" name="sortBy" value="PasswordHash" onclick={this.onChange}></button></th>
-                                    <th>SecurityStamp <button className="fas fa-sort float-right" name="sortBy" value="SecurityStamp" onclick={this.onChange}></button></th>
+                                    {/* <th>EmailConfirmed <button className="fas fa-sort float-right" name="sortBy" value="EmailConfirmed" onclick={this.onChange}></button></th> */}
+                                    {/* <th>PasswordHash <button className="fas fa-sort float-right" name="sortBy" value="PasswordHash" onclick={this.onChange}></button></th>
+                                    <th>SecurityStamp <button className="fas fa-sort float-right" name="sortBy" value="SecurityStamp" onclick={this.onChange}></button></th> */}
                                     <th>PhoneNumber <button className="fas fa-sort float-right" name="sortBy" value="PhoneNumber" onclick={this.onChange}></button></th>
-                                    <th>PhoneNumberConfirmed <button className="fas fa-sort float-right" name="sortBy" value="PhoneNumberConfirmed" onclick={this.onChange}></button></th>
-                                    <th>TwoFactorEnabled <button className="fas fa-sort float-right" name="sortBy" value="TwoFactorEnabled" onclick={this.onChange}></button></th>
+                                    {/* <th>PhoneNumberConfirmed <button className="fas fa-sort float-right" name="sortBy" value="PhoneNumberConfirmed" onclick={this.onChange}></button></th> */}
+                                    {/* <th>TwoFactorEnabled <button className="fas fa-sort float-right" name="sortBy" value="TwoFactorEnabled" onclick={this.onChange}></button></th> */}
                                     <th>LockoutEndDateUtc <button className="fas fa-sort float-right" name="sortBy" value="LockoutEndDateUtc" onclick={this.onChange}></button></th>
-                                    <th>LockoutEnabled <button className="fas fa-sort float-right" name="sortBy" value="LockoutEnabled" onclick={this.onChange}></button></th>
+                                    {/* <th>LockoutEnabled <button className="fas fa-sort float-right" name="sortBy" value="LockoutEnabled" onclick={this.onChange}></button></th> */}
                                     <th>AccessFailedCount <button className="fas fa-sort float-right" name="sortBy" value="AccessFailedCount" onclick={this.onChange}></button></th>
                                     <th>UserName <button className="fas fa-sort float-right" name="sortBy" value="UserName" onclick={this.onChange}></button></th>
                                 </tr>
@@ -65,18 +84,18 @@ class Logs extends React.Component {
                             {this.state.pagedItems.map((para) => {
                                 return <LogGetAllForm
                                     key={para.id}
-                                    id={para.id}
-                                    email={para.email}
-                                    emailConfirmed={para.emailConfirmed}
-                                    passwordHash={para.passwordHash}
-                                    securityStamp={para.securityStamp}
-                                    phoneNumber={para.phoneNumber}
-                                    phoneNumberConfirmed={para.phoneNumberConfirmed}
-                                    twoFactorEnabled={para.twoFactorEnabled}
-                                    lockoutEndDateUtc={para.lockoutEndDateUtc}
-                                    lockoutEnabled={para.lockoutEnabled}
-                                    accessFailedCount={para.accessFailedCount}
-                                    userName={para.userName}
+                                    //Id={para.Id}
+                                    Email={para.Email}
+                                    //EmailConfirmed={para.EmailConfirmed}
+                                    //PasswordHash={para.PasswordHash}
+                                    // SecurityStamp={para.SecurityStamp}
+                                    PhoneNumber={para.PhoneNumber}
+                                    //PhoneNumberConfirmed={para.PhoneNumberConfirmed}
+                                    //TwoFactorEnabled={para.TwoFactorEnabled}
+                                    LockoutEndDateUtc={para.LockoutEndDateUtc}
+                                    //LockoutEnabled={para.LockoutEnabled}
+                                    AccessFailedCount={para.AccessFailedCount}
+                                    UserName={para.UserName}
                                     delete={this.delete}
                                 />
                             })}
