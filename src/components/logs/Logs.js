@@ -46,6 +46,35 @@ class Logs extends React.Component {
         console.log(err)
     }
 
+    pageNext = evt => {
+        if (this.state.pagedItems.length == 0 ) {
+            this.setState ({
+                disable: true
+            })
+        } else {
+            this.setState({
+                pageNumber: this.state.pageNumber + 1
+            }, () => LogService.selectByPageNumber(this.state.pageNumber, this.state.pageSize, this.onPaginationSuccess, this.onPaginationError))
+        }
+    }
+
+    pagePrevious = evt => {
+        if (this.state.pageNumber == 1) {
+            this.setState ({
+                disable:true
+            })
+        } else {
+            this.setState({
+                disable:false,
+                pageNumber: this.state.pageNumber - 1
+            }, () => LogService.selectByPageNumber(this.state.pageNumber, this.state.pageSize, this.onPaginationSuccess, this.onPaginationError))
+        }
+    }
+
+    onChange = evt => {
+        let key = evt.target.name
+        let value = ec
+    }
     
 
 
