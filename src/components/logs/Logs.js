@@ -10,7 +10,12 @@ class Logs extends React.Component {
         this.state = {
             pageNumber: 0,
             pageSize: 10,
-            pagedItems:[]
+            pagedItems:[],
+            sortBy: '',
+            sortOrder: "DESC",
+            searchObject: {
+                searchTerm: ""
+            }
         }
     }
 
@@ -73,7 +78,47 @@ class Logs extends React.Component {
 
     onChange = evt => {
         let key = evt.target.name
-        let value = ec
+        let val = evt.target.value
+        console.log(evt.target.name, evt.target.val)
+        let searchObject = {
+            ...this.state.searchObject
+        }
+        searchObject.searchTerm = this.state.searchObject.searchTerm
+        searchObject.UserName = this.state.searchObject.UserName
+        searchObject.pageNumber = this.state.pageNumber
+        searchObject.pageSize = this.state.pageSize
+        searchObject.pageSize = this.state.sortBy
+        searchObject.pageSize = this.state.sortOrder
+        if (this.state.sortOrder == 'DESC') {
+            this.setState({
+                searchObject,
+                [key]: val,
+                pageNumber: 1,
+                sortOrder: 'ASC'
+            }, () => this.filterLogs(searchObject))
+        } else {
+            this.setState({
+                searchObject,
+                [key]: val,
+                pageNumber: 1,
+                sortOrder: 'DESC'
+            }, () => this.filterLogs(searchObject))
+        }
+    }
+
+    filterLogs = items => {
+        console.log(this.state)
+        let data = {
+            searchTerm: this.state.searchTerm,
+            pageNumber: this.state.pageNumber,
+            pageSize: this.state.pageSize,
+            sortBy: this.state.sortBy,
+            sortOrder: this.state.sortOrder
+        }
+        console.log(this.state.pageNumber)
+        this.setState({
+            pageNumber: 1
+        }, LogService.search(data, this.onGetSuccess, this.onGetError))
     }
     
 
@@ -97,17 +142,17 @@ class Logs extends React.Component {
                             <thead >
                                 <tr>
                                     {/* <th>Id <button className="fas fa-sort float-right" name="sortBy" value="Id" onclick={this.onChange}></button></th> */}
-                                    <th>Email <button className="fas fa-sort float-right" name="sortBy" value="Email" onclick={this.onChange}></button></th>
+                                    <th>Email <button className="fas fa-sort float-right" name="sortBy" value="Email" onClick={this.onChange}></button></th>
                                     {/* <th>EmailConfirmed <button className="fas fa-sort float-right" name="sortBy" value="EmailConfirmed" onclick={this.onChange}></button></th> */}
                                     {/* <th>PasswordHash <button className="fas fa-sort float-right" name="sortBy" value="PasswordHash" onclick={this.onChange}></button></th>
                                     <th>SecurityStamp <button className="fas fa-sort float-right" name="sortBy" value="SecurityStamp" onclick={this.onChange}></button></th> */}
-                                    <th>PhoneNumber <button className="fas fa-sort float-right" name="sortBy" value="PhoneNumber" onclick={this.onChange}></button></th>
+                                    <th>PhoneNumber <button className="fas fa-sort float-right" name="sortBy" value="PhoneNumber" onClick={this.onChange}></button></th>
                                     {/* <th>PhoneNumberConfirmed <button className="fas fa-sort float-right" name="sortBy" value="PhoneNumberConfirmed" onclick={this.onChange}></button></th> */}
                                     {/* <th>TwoFactorEnabled <button className="fas fa-sort float-right" name="sortBy" value="TwoFactorEnabled" onclick={this.onChange}></button></th> */}
-                                    <th>LockoutEndDateUtc <button className="fas fa-sort float-right" name="sortBy" value="LockoutEndDateUtc" onclick={this.onChange}></button></th>
+                                    <th>LockoutEndDateUtc <button className="fas fa-sort float-right" name="sortBy" value="LockoutEndDateUtc" onClick={this.onChange}></button></th>
                                     {/* <th>LockoutEnabled <button className="fas fa-sort float-right" name="sortBy" value="LockoutEnabled" onclick={this.onChange}></button></th> */}
-                                    <th>AccessFailedCount <button className="fas fa-sort float-right" name="sortBy" value="AccessFailedCount" onclick={this.onChange}></button></th>
-                                    <th>UserName <button className="fas fa-sort float-right" name="sortBy" value="UserName" onclick={this.onChange}></button></th>
+                                    <th>AccessFailedCount <button className="fas fa-sort float-right" name="sortBy" value="AccessFailedCount" onClick={this.onChange}></button></th>
+                                    <th>UserName <button className="fas fa-sort float-right" name="sortBy" value="UserName" onClick={this.onChange}></button></th>
                                 </tr>
                             </thead>
                             {this.state.pagedItems.map((para) => {

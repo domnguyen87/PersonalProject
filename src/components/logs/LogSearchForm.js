@@ -20,7 +20,7 @@ const LogSearchForm = props => {
                 <div className="offset-col-md" style={{ height: "77px"}}>
                     <div id="DataTables_Table_0_filter" className="dataTables_filter">
                         <label>Search 
-                            <DebounceInput minLength={1} debounceTimeout={300} input type="text" name="searchTerm" className="form-control form-control-md" value={props.searchTerm} aria-controls="DataTables_Table_0" onChange={props.onChange} /> 
+                            <DebounceInput minLength={1} debounceTimeout={300} input type="text" name="searchTerm" className="form-control form-control-md" value={props.searchTerm} placeholder="" aria-controls="DataTables_Table_0" onChange={props.onChange} /> 
                         </label>
                     </div>
                 </div>
