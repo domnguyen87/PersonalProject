@@ -6,12 +6,13 @@ import Spinner from 'react-spinkit'
 import PicturesComponent from './PicturesComponent';
 import FileStorageService from '../../services/FileStorageService'
 import UploadInput from './UploadInput'
-
+import SignatureCanvas from "react-signature-canvas";
 
 
 class profile extends React.Component {
     constructor(props) {
         super(props)
+        this.sigCanvas = React.createRef();
         this.state = {
             firstName:'',
             lastName:'',
@@ -38,8 +39,12 @@ class profile extends React.Component {
     componentDidMount() {
         ProfileService.getByIdProfile(4, this.profileSuccess, this.profileError)
         FileStorageService.selectall(this.getAllImagesSuccess, this.getAllImageError)
+  }
+  
+    saveSignature = () => {
+      console.log('sigworked',this.sigCanvas.current.toDataURL());
+    };
 
-    }
 
     getAllImagesSuccess = resp => {
       console.log(resp.data)
@@ -241,8 +246,12 @@ class profile extends React.Component {
                             <div className="col-md-6">
                                 <div className="card mb-4">
                                 <div className="card-header">
-                                    <div className="text-muted">Activity Log</div>
-                                </div>
+                                  <div className="text-muted">Activity Log</div>
+                                    <div style={{ width: 300, height: 150, border: "1px dotted black" }}>
+                                      <SignatureCanvas ref={this.sigCanvas} penColor="green" />
+                                    </div>
+                                    </div>
+                                    <button type="button" onClick={this.saveSignature} className="btn btn-link small">SAVE</button>
                                 <div className="card-body">
                                 </div>
                                 </div>

@@ -1,7 +1,5 @@
 {
-  "ProjectFilePath": "c:\\PersonalProject\\sandbox\\C64SampleApp\\C64SampleApp\\C64SampleApp.csproj",
-  "TargetFramework": "v4.6.1",
-  "TagHelpers": [],
+  "FilePath": "c:\\PersonalProject\\sandbox\\C64SampleApp\\C64SampleApp\\C64SampleApp.csproj",
   "Configuration": {
     "ConfigurationName": "UnsupportedRazor",
     "LanguageVersion": "1.0",
@@ -10,5 +8,12 @@
         "ExtensionName": "UnsupportedRazorExtension"
       }
     ]
-  }
+  },
+  "ProjectWorkspaceState": {
+    "TagHelpers": [],
+    "CSharpLanguageVersion": 703
+  },
+  "RootNamespace": null,
+  "Documents": [],
+  "SerializationFormat": "0.2"
 }
