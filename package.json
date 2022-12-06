@@ -9,7 +9,7 @@
     "bootstrap": "^4.2.1",
     "gh-pages": "^2.0.1",
     "google-maps-react": "^2.0.2",
-    "qs": "^6.6.0",
+    "qs": "^6.6.1",
     "react": "^16.7.0",
     "react-avatar-edit": "^0.7.1",
     "react-bootstrap-sweetalert": "^4.4.1",
